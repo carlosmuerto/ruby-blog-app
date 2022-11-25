@@ -6,28 +6,13 @@ jobs:
   rspec:
     name: RSpec
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node-version:
-        - '12.22'
-        database-name:
-        - ruby_blog_app_test
-        database-password:
-        - ruby_blog_app_pass
-        database-user:
-        - ruby_blog_app
-        database-host:
-        - 127.0.0.1
-        database-port:
-        - 5432
 
     services:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_DB: ${{ matrix.database-name }}
-          POSTGRES_USER: ${{ matrix.database-user }}
-          POSTGRES_PASSWORD: ${{ matrix.database-password }}
+          POSTGRES_USER: ruby_blog_app_pass
+          POSTGRES_PASSWORD: ruby_blog_app
         ports:
           - 5432:5432
         # Set health checks to wait until postgres has started
@@ -48,7 +33,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '12.22'
 
       - name: Install packages
         run: |
@@ -60,27 +45,10 @@ jobs:
           gem install --no-document rspec -v '>=3.0, < 4.0'
 
       - name: create test database
-        env:
-          RAILS_ENV: test
-          DATABASE_NAME_TEST: ${{ matrix.database-name }}
-          DATABASE_USER: ${{ matrix.database-user }}
-          DATABASE_PASSWORD: ${{ matrix.database-password }}
-          DATABASE_HOST: ${{ matrix.database-host }}
-          DATABASE_PORT: ${{ matrix.database-port }}
-          POSTGRES_DB: ${{ matrix.database-name }}
         run: rails db:create
 
       - name: Setup test database
-        env:
-          RAILS_ENV: test
-          DATABASE_NAME_TEST: ${{ matrix.database-name }}
-          DATABASE_USER: ${{ matrix.database-user }}
-          DATABASE_PASSWORD: ${{ matrix.database-password }}
-          DATABASE_HOST: ${{ matrix.database-host }}
-          DATABASE_PORT: ${{ matrix.database-port }}
-          POSTGRES_DB: ${{ matrix.database-name }}
         run: rails db:setup
-
 
       - name: RSpec Report
         run: rspec --force-color --format documentation
