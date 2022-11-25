@@ -10,6 +10,13 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
+  validates :title, presence: true
+  validates :title, length: { maximum: 250 }
+  validates :comments_counter, :likes_counter, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 0
+  }
+
   private
 
   def increment_author_posts_couter
