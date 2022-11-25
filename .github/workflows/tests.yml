@@ -64,7 +64,7 @@ jobs:
           DATABASE_HOST: ${{ matrix.database-host }}
           DATABASE_PORT: ${{ matrix.database-port }}
           POSTGRES_DB: ${{ matrix.database-name }}
-        run: rails db:setup
+        run: bundle exec rails db:setup
 
       - name: Setup RSpec
         run: |
