@@ -6,6 +6,19 @@ jobs:
   rspec:
     name: RSpec
     runs-on: ubuntu-18.04
+
+    services:
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ""
+          POSTGRES_DB: postgres
+        ports:
+        - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
@@ -15,5 +28,7 @@ jobs:
         run: |
           [ -f Gemfile ] && bundle
           gem install --no-document rspec -v '>=3.0, < 4.0'
+      - name: install db
+        run: rails db:reset
       - name: RSpec Report
         run: rspec --force-color --format documentation
