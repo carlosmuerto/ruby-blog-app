@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
       expect(subject.posts.length).to eq 4
     end
 
-    it "recent_posts should have 3 post" do
+    it "recent_posts should return max 3 post" do
       expect(subject.recent_posts.length).to eq 3
     end
 
