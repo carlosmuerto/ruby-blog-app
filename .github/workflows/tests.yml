@@ -13,7 +13,7 @@ jobs:
         node-version:
         - '12.22'
         database-name:
-        - ruby_blog_app
+        - ruby_blog_app-app
         database-password:
         - postgres
         database-user:
@@ -46,7 +46,6 @@ jobs:
     - name: Set up Ruby, Bundler and Rails
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
     - name: Set up Node
