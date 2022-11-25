@@ -6,14 +6,77 @@ jobs:
   rspec:
     name: RSpec
     runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node-version:
+        - '12.22'
+        database-password:
+        - ruby_blog_app_pass
+        database-user:
+        - ruby_blog_app
+        database-host:
+        - 127.0.0.1
+        database-port:
+        - 5432
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: ${{ matrix.database-user }}
+          POSTGRES_PASSWORD: ${{ matrix.database-password }}
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options:
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+
+      - name: Check out Git Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby, Bundler and Rails
+        uses: actions/setup-ruby@v1
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
         with:
-          ruby-version: 3.1.x
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install packages
+        run: |
+          yarn install --check-files
+
+      - name: Install library for postgres
+        run: sudo apt-get install libpq-dev
+
       - name: Setup RSpec
         run: |
           [ -f Gemfile ] && bundle
           gem install --no-document rspec -v '>=3.0, < 4.0'
+
+      - name: create test database
+        env:
+          RAILS_ENV: test
+          DATABASE_USER: ${{ matrix.database-user }}
+          DATABASE_PASSWORD: ${{ matrix.database-password }}
+          DATABASE_HOST: ${{ matrix.database-host }}
+          DATABASE_PORT: ${{ matrix.database-port }}
+        run: rails db:create
+
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+          DATABASE_USER: ${{ matrix.database-user }}
+          DATABASE_PASSWORD: ${{ matrix.database-password }}
+          DATABASE_HOST: ${{ matrix.database-host }}
+          DATABASE_PORT: ${{ matrix.database-port }}
+        run: rails db:setup
+
+
       - name: RSpec Report
         run: rspec --force-color --format documentation
