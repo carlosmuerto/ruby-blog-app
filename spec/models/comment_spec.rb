@@ -1,4 +1,4 @@
-srequire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   let(:post_user) { User.create(name: 'Tom') }
