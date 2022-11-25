@@ -60,7 +60,7 @@ jobs:
           RAILS_ENV: test
           DATABASE_USER: ${{ matrix.database-user }}
           DATABASE_PASSWORD: ${{ matrix.database-password }}
-        run: rails db:create
+        run: rails db:create --trace
 
       - name: Setup test database
         env:
