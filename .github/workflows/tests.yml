@@ -28,7 +28,8 @@ jobs:
         run: |
           [ -f Gemfile ] && bundle
           gem install --no-document rspec -v '>=3.0, < 4.0'
-      - name: install db
-        run: rails db:reset
+      - name: Create DB
+        run: |
+          bin/rails db:prepare
       - name: RSpec Report
         run: rspec --force-color --format documentation
