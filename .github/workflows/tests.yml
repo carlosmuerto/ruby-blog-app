@@ -3,17 +3,15 @@ name: Tests
 on: pull_request
 
 jobs:
-  test:
-
-    runs-on: ubuntu-latest
+  rspec:
+    name: RSpec
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
-        ruby-version:
-        - '3.1.2'
         node-version:
         - '12.22'
         database-name:
-        - ruby_blog_app-app
+        - my-app
         database-password:
         - postgres
         database-user:
@@ -40,31 +38,38 @@ jobs:
           --health-retries 5
 
     steps:
-    - name: Check out Git Repository
-      uses: actions/checkout@v2
 
-    - name: Set up Ruby, Bundler and Rails
-      uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Check out Git Repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Set up Ruby, Bundler and Rails
+        uses: actions/setup-ruby@v1
 
-    - name: Install packages
-      run: |
-        yarn install --check-files
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Setup test database
-      env:
-        RAILS_ENV: test
-        DATABASE_NAME_TEST: ${{ matrix.database-name }}
-        DATABASE_USER: ${{ matrix.database-user }}
-        DATABASE_PASSWORD: ${{ matrix.database-password }}
-        DATABASE_HOST: ${{ matrix.database-host }}
-        DATABASE_PORT: ${{ matrix.database-port }}
-        POSTGRES_DB: ${{ matrix.database-name }}
-      run: |
-        bundle exec rails db:setup
+      - name: Install packages
+        run: |
+          yarn install --check-files
+
+
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+          DATABASE_NAME_TEST: ${{ matrix.database-name }}
+          DATABASE_USER: ${{ matrix.database-user }}
+          DATABASE_PASSWORD: ${{ matrix.database-password }}
+          DATABASE_HOST: ${{ matrix.database-host }}
+          DATABASE_PORT: ${{ matrix.database-port }}
+          POSTGRES_DB: ${{ matrix.database-name }}
+        run: rails db:setup
+
+      - name: Setup RSpec
+        run: |
+          [ -f Gemfile ] && bundle
+          gem install --no-document rspec -v '>=3.0, < 4.0'
+
+      - name: RSpec Report
+        run: rspec --force-color --format documentation
