@@ -54,6 +54,10 @@ jobs:
         run: |
           yarn install --check-files
 
+      - name: Setup RSpec
+        run: |
+          [ -f Gemfile ] && bundle
+          gem install --no-document rspec -v '>=3.0, < 4.0'
 
       - name: Setup test database
         env:
@@ -64,12 +68,7 @@ jobs:
           DATABASE_HOST: ${{ matrix.database-host }}
           DATABASE_PORT: ${{ matrix.database-port }}
           POSTGRES_DB: ${{ matrix.database-name }}
-        run: bundle exec rails db:setup
-
-      - name: Setup RSpec
-        run: |
-          [ -f Gemfile ] && bundle
-          gem install --no-document rspec -v '>=3.0, < 4.0'
+        run: rails db:setup
 
       - name: RSpec Report
         run: rspec --force-color --format documentation
