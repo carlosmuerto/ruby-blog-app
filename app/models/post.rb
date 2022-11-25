@@ -10,7 +10,7 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
-	private
+  private
 
   def increment_author_posts_couter
     author.increment!(:posts_count)

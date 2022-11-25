@@ -4,7 +4,7 @@ class Like < ApplicationRecord
 
   after_save :increment_like_couter
 
-	private
+  private
 
   def increment_like_couter
     post.increment!(:likes_counter)
