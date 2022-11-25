@@ -21,6 +21,9 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+  host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+  port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
+
   username: ruby_blog_app
   password: ruby_blog_app_pass
 
@@ -62,8 +65,6 @@ development:
 test:
   <<: *default
   database: ruby_blog_app_test
-  port: 5432
-  host: 127.0.0.1
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
