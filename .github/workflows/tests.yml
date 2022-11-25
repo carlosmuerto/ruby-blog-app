@@ -45,9 +45,13 @@ jobs:
           gem install --no-document rspec -v '>=3.0, < 4.0'
 
       - name: create test database
+        env:
+          RAILS_ENV: test
         run: rails db:create
 
       - name: Setup test database
+        env:
+          RAILS_ENV: test
         run: rails db:setup
 
       - name: RSpec Report
