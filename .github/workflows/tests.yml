@@ -52,7 +52,7 @@ jobs:
           yarn install --check-files
 
       - name: Install library for postgres
-          run: sudo apt-get install libpq-dev
+        run: sudo apt-get install libpq-dev
 
       - name: Setup RSpec
         run: |
