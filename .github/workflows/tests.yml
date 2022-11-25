@@ -11,11 +11,11 @@ jobs:
         node-version:
         - '12.22'
         database-name:
-        - ruby_blog_app
+        - ruby_blog_app_test
         database-password:
-        - postgres
+        - ruby_blog_app_pass
         database-user:
-        - postgres
+        - ruby_blog_app
         database-host:
         - 127.0.0.1
         database-port:
