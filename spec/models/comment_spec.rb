@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
+describe Comment, type: :model do
   let(:post_user) { User.create(name: 'Tom') }
 
   let(:helper_user) do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :request do
+describe 'Posts', type: :request do
 	let(:user_id) { 1 }
 	let(:posts_id) { 1 }
 

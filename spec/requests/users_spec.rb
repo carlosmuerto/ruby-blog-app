@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
+describe 'Users', type: :request do
 	let(:user_id) { 1 }
 
   context ' GET /users' do

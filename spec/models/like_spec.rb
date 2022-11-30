@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Like, type: :model do
+describe Like, type: :model do
   let(:post_user) { User.create(name: 'Tom') }
 
   let(:helper_user) do

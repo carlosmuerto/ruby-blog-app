@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'show one User', type: :feature do
+describe 'show one User', type: :feature do
   let(:user_id) { 1 }
 
   context "visit /users/:user_id" do
