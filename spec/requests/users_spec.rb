@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Users', type: :request do
-	let(:user_id) { 1 }
+  let(:user_id) { 1 }
 
   context ' GET /users' do
     before(:example) { get users_path }
@@ -16,7 +16,7 @@ describe 'Users', type: :request do
   end
 
   context 'GET /users/:user_id' do
-    before(:example) { get user_path user_id}
+    before(:example) { get user_path user_id }
     it 'returns http success' do
       expect(response).to have_http_status(:success)
     end
