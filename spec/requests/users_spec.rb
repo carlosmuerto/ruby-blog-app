@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
 	let(:user_id) { 1 }
 
-  describe ' GET /users' do
+  context ' GET /users' do
     before(:example) { get users_path }
 
     it 'returns http success' do
@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'GET /users/:user_id' do
+  context 'GET /users/:user_id' do
     before(:example) { get user_path user_id}
     it 'returns http success' do
       expect(response).to have_http_status(:success)
