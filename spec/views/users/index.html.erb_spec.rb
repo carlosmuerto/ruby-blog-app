@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'users/index.html.erb', type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe 'users/index.html.erb', type: :view do
+  before(:example) { render }
+  it 'has placeholder text' do # Find me in app/views/users/index.html.erb
+    expect(rendered).to include('Find me in app/views/users/index.html.erb')
+  end
 end
