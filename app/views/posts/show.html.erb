@@ -1,2 +1,20 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<main class="full-post" id=<%= "post_id_#{@post.id}"%>>
+	<h1 class="title">
+		<%=@post.title%>
+		<span class="by-author">
+			by: <%=@user.name%>
+		</span>
+	</h1>
+	<span class="commnts-and-likes">
+		<%=@post.comments_counter%> comments, <%=@post.likes_counter%> likes
+	</span>
+	<article class="post-content">
+		<p><%=@post.text%></p>
+	</article>
+	<article class="comments">
+		<% @comments.each do |comment| %>
+			<%= render "posts/comment", comment: comment %>
+		<% end %>
+		<%= paginate @comments %>
+	</article>
+</main>

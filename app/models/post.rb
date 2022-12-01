@@ -4,6 +4,8 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'users_id'
 
+	paginates_per 5
+
   after_save :increment_author_posts_couter
 
   def recent_comments
