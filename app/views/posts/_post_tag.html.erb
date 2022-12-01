@@ -1,4 +1,6 @@
-<h4><%= post.title %></h4>
+<%= link_to user_post_path post.author, post do %>
+	<h4><%= post.title %></h4>
+<% end %>
 <span class="updated-at"> last edit: <%= post.updated_at.localtime %></span>
 <p><%= post.text %></p>
 <div class="post-counts">

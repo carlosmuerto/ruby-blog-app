@@ -5,7 +5,6 @@
 	<section class="all-posts">
 		<h2>Posts (<%= @user.posts.count %>)</h2>
 		<% @user.posts.order(updated_at: :desc).each do |post| %>
-			<article class="post">
 				<%= render "posts/post_tag", post: post %>
 				<div class="recent-comments">
 					<% post.recent_comments.each do |comment| %>
