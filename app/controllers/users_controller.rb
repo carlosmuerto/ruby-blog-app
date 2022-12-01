@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.page params[:page]
   end
 
   def show
     # raise ActionController::RoutingError.new('Not Found')
-    begin
-      @user = User.find params[:id]
-    rescue ActiveRecord::RecordNotFound => e
-			ActiveRecord::RecordNotFound
-    end
+    @user = User.find params[:id]
   end
 end
