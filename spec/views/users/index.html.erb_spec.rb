@@ -1,8 +1,21 @@
 require 'rails_helper'
 
 describe 'users/index.html.erb', type: :view do
-  before(:example) { render }
-  it 'has placeholder text' do # Find me in app/views/users/index.html.erb
-    expect(rendered).to include('Find me in app/views/users/index.html.erb')
+  before(:example) {
+    assign(:users, [
+      User.create(
+        name: 'Scott Wells',
+      ),
+
+      User.create(
+        name: 'Ella Green',
+      ),
+    ])
+    render
+  }
+
+  it 'render all users name' do
+    expect(rendered).to include('Scott Wells')
+    expect(rendered).to include('Ella Green')
   end
 end

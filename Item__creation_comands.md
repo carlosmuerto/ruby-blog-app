@@ -1,17 +1,74 @@
 ### create users
 
 ```ruby
-User.create(name: 'Alicia Addy', photo: '"https://randomuser.me/api/portraits/women/65.jpg')
-User.create(name: 'Scott Wells', photo: 'https://randomuser.me/api/portraits/men/46.jpg')
-User.create(name: 'Ella Green', photo: 'https://randomuser.me/api/portraits/women/55.jpg')
-User.create(name: 'Emine Zwick', photo: 'https://randomuser.me/api/portraits/women/76.jpg')
-User.create(name: 'Maxime Boyer', photo: 'https://randomuser.me/api/portraits/men/30.jpg')
-User.create(name: 'Luise Yilmaz', photo: 'https://randomuser.me/api/portraits/women/74.jpg')
-User.create(name: 'Hans-Heinrich Euler', photo: 'https://randomuser.me/api/portraits/men/85.jpg')
-User.create(name: 'Nikolaj Larsen', photo: 'https://randomuser.me/api/portraits/men/5.jpg')
-User.create(name: 'Felix Lavoie', photo: 'https://randomuser.me/api/portraits/men/1.jpg')
-User.create(name: 'Noah Knight', photo: 'https://randomuser.me/api/portraits/men/39.jpg')
-User.create(name: 'Ramon Reyes', photo: 'https://randomuser.me/api/portraits/men/38.jpg')
+lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere, diam eu tempor gravida, tellus nibh accumsan ligula, at efficitur neque nibh at tellus. Nullam ante ex, lobortis sit amet odio ac, fermentum cursus est. Quisque ornare dapibus metus in eleifend. Ut luctus erat eget mauris egestas porta. Suspendisse potenti. Curabitur malesuada nunc ex, ac tincidunt purus eleifend nec. Nunc nisi orci, bibendum sit amet orci ac, tempus tristique libero. Proin tempor convallis lectus, sed fringilla ex finibus vulputate."
+
+User.create(
+	name: 'Alicia Addy',
+	photo: 'https://randomuser.me/api/portraits/women/65.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Scott Wells',
+	photo: 'https://randomuser.me/api/portraits/men/46.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Ella Green',
+	photo: 'https://randomuser.me/api/portraits/women/55.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Emine Zwick',
+	photo: 'https://randomuser.me/api/portraits/women/76.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Maxime Boyer',
+	photo: 'https://randomuser.me/api/portraits/men/30.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Luise Yilmaz',
+	photo: 'https://randomuser.me/api/portraits/women/74.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Hans-Heinrich Euler',
+	photo: 'https://randomuser.me/api/portraits/men/85.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Nikolaj Larsen',
+	photo: 'https://randomuser.me/api/portraits/men/5.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Felix Lavoie',
+	photo: 'https://randomuser.me/api/portraits/men/1.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Noah Knight',
+	photo: 'https://randomuser.me/api/portraits/men/39.jpg',
+	bio: lorem_ipsum,
+)
+
+User.create(
+	name: 'Ramon Reyes',
+	photo: 'https://randomuser.me/api/portraits/men/38.jpg',
+	bio: lorem_ipsum,
+)
+
 ```
 
 ### create post

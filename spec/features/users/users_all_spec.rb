@@ -11,7 +11,7 @@ describe 'show all Users', type: :feature do
     end
 
     it 'has placeholder text' do
-      expect(page).to have_text('Users#index')
+      expect(page).to have_text('All Users')
     end
   end
 end
