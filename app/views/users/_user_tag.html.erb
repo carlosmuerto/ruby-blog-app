@@ -1,7 +1,7 @@
-<div class="user-tag" id=<%= "user_id_#{user.id}" %>>
-	<img class="user-photo" src=<%= user.photo %>>
-	<div>
+<img class="user-photo" src=<%= user.photo %>>
+<div>
+	<%= link_to user_path user do %>
 		<h2><%= user.name %></h2>
-		posts: <span><%= user.posts_count %></span>
-	</div>
+	<% end %>
+	posts: <span><%= user.posts_count %></span>
 </div>
