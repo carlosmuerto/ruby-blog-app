@@ -1,13 +1,16 @@
-<%= render "users/user_tag", user: @user %>
-<div>
-  <h3>Bio</h3>
-  <p><%= @user.bio %></p>
-</div>
-<div>
-  <h3>Posts (<%= @user.posts.count %>)</h3>
-  <% @user.posts.each do |post| %>
-    <h4><%= post.title %></h4>
-    <p><%= post.text %></p>
-  <% end %>
-  <%= link_to 'see all posts', user_posts_path(@user) %>
-</div>
+<main class="user-show">
+  <section class="user">
+    <%= render "users/user_tag", user: @user %>
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </section>
+  <section class="recent-posts">
+    <h3>Posts (<%= @user.posts.count %>)</h3>
+    <% @user.recent_posts.each do |post| %>
+      <article class="post-preview">
+        <%= render "posts/post_tag", post: post %>
+      </article>
+    <% end %>
+    <%= link_to 'see all posts', user_posts_path(@user) %>
+  </section>
+</main>

@@ -1,2 +1,18 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<main class="user-posts">
+	<section class="user">
+		<%= render "users/user_tag", user: @user %>
+	</section>
+	<section class="all-posts">
+		<h2>Posts (<%= @user.posts.count %>)</h2>
+		<% @user.posts.order(updated_at: :asc).each do |post| %>
+			<article class="post">
+				<%= render "posts/post_tag", post: post %>
+				<div class="recent-comments">
+					<% post.recent_comments.each do |comment| %>
+						<%= render "posts/comment", comment: comment %>
+					<% end %>
+				</div>
+			</article>
+		<% end %>
+	</section>
+</main>
