@@ -1,2 +1,13 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render "users/user_tag", user: @user %>
+<div>
+  <h4>Bio</h4>
+  <p><%= @user.bio %></p>
+</div>
+<div>
+  <h2>Posts (<%= @user.posts.count %>)</h2>
+  <% @user.posts.each do |post| %>
+    <h3><%= post.title %></h3>
+    <p><%= post.text %></p>
+  <% end %>
+  <a href=<%= "/users/#{@user.id}/posts" %> >see all posts</a>
+</div>
