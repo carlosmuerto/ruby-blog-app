@@ -1,9 +1,13 @@
 <main class="full-post" id=<%= "post_id_#{@post.id}"%>>
 	<h1 class="title">
 		<%=@post.title%>
-		<span class="by-author">
-			by: <%=@user.name%>
-		</span>
+
+			<span class="by-author">
+				by:
+				<%= link_to user_path @user do %>
+				<%=@user.name%>
+		<% end %>
+			</span>
 	</h1>
 	<span class="commnts-and-likes">
 		<%=@post.comments_counter%> comments, <%=@post.likes_counter%> likes
