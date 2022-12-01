@@ -1,3 +1,5 @@
-<h4><%= comment.author.name %></h4>
-<p><%= comment.text %></p>
-<span class="updated-at"> last edit: <%= comment.updated_at.localtime %></span>
+<div class="comment" id=<%="comment-#{comment.id}"%>>
+	<h4 class="comment-author"><%= comment.author.name %></h4>
+	<p class="comment-text"><%= comment.text %></p>
+	<span class="comment-updated-at"> last edit: <%= comment.updated_at.localtime %></span>
+</div>
