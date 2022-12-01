@@ -1,13 +1,13 @@
 <%= render "users/user_tag", user: @user %>
 <div>
-  <h4>Bio</h4>
+  <h3>Bio</h3>
   <p><%= @user.bio %></p>
 </div>
 <div>
-  <h2>Posts (<%= @user.posts.count %>)</h2>
+  <h3>Posts (<%= @user.posts.count %>)</h3>
   <% @user.posts.each do |post| %>
-    <h3><%= post.title %></h3>
+    <h4><%= post.title %></h4>
     <p><%= post.text %></p>
   <% end %>
-  <a href=<%= "/users/#{@user.id}/posts" %> >see all posts</a>
+  <%= link_to 'see all posts', user_posts_path(@user) %>
 </div>
