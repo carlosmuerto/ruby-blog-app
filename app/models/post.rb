@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   end
 
   validates :title, presence: true
+	validates :author, presence: true
   validates :title, length: { maximum: 250 }
   validates :comments_counter, :likes_counter, numericality: {
     only_integer: true,

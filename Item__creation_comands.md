@@ -2,16 +2,16 @@
 
 ```ruby
 User.create(name: 'Alicia Addy', photo: '"https://randomuser.me/api/portraits/women/65.jpg')
-User.create(name: 'Scott Wells', photo: 'https://randomuser.me/api/portraits/med/men/46.jpg')
-User.create(name: 'Ella Green', photo: 'https://randomuser.me/api/portraits/med/women/55.jpg')
-User.create(name: 'Emine Zwick', photo: 'https://randomuser.me/api/portraits/med/women/76.jpg')
-User.create(name: 'Maxime Boyer', photo: 'https://randomuser.me/api/portraits/med/men/30.jpg')
-User.create(name: 'Luise Yilmaz', photo: 'https://randomuser.me/api/portraits/med/women/74.jpg')
-User.create(name: 'Hans-Heinrich Euler', photo: 'https://randomuser.me/api/portraits/med/men/85.jpg')
-User.create(name: 'Nikolaj Larsen', photo: 'https://randomuser.me/api/portraits/med/men/5.jpg')
-User.create(name: 'Felix Lavoie', photo: 'https://randomuser.me/api/portraits/med/men/1.jpg')
-User.create(name: 'Noah Knight', photo: 'https://randomuser.me/api/portraits/med/men/39.jpg')
-User.create(name: 'Ramon Reyes', photo: 'https://randomuser.me/api/portraits/med/men/38.jpg')
+User.create(name: 'Scott Wells', photo: 'https://randomuser.me/api/portraits/men/46.jpg')
+User.create(name: 'Ella Green', photo: 'https://randomuser.me/api/portraits/women/55.jpg')
+User.create(name: 'Emine Zwick', photo: 'https://randomuser.me/api/portraits/women/76.jpg')
+User.create(name: 'Maxime Boyer', photo: 'https://randomuser.me/api/portraits/men/30.jpg')
+User.create(name: 'Luise Yilmaz', photo: 'https://randomuser.me/api/portraits/women/74.jpg')
+User.create(name: 'Hans-Heinrich Euler', photo: 'https://randomuser.me/api/portraits/men/85.jpg')
+User.create(name: 'Nikolaj Larsen', photo: 'https://randomuser.me/api/portraits/men/5.jpg')
+User.create(name: 'Felix Lavoie', photo: 'https://randomuser.me/api/portraits/men/1.jpg')
+User.create(name: 'Noah Knight', photo: 'https://randomuser.me/api/portraits/men/39.jpg')
+User.create(name: 'Ramon Reyes', photo: 'https://randomuser.me/api/portraits/men/38.jpg')
 ```
 
 ### create post

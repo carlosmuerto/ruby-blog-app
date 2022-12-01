@@ -12,7 +12,7 @@ describe Like, type: :model do
   end
 
   subject do
-    Like.new(author: helper_user, post:)
+    Like.new(author: helper_user, post: post)
   end
 
   context 'like belongs_to a author' do
@@ -38,7 +38,7 @@ describe Like, type: :model do
   it 'a user cant like twice' do
     subject.save
 
-    other_like = Like.new(author: helper_user, post:)
+    other_like = Like.new(author: helper_user, post: post)
     expect(other_like).to_not be_valid
   end
 end
