@@ -8,6 +8,7 @@ describe 'users/show.html.erb', type: :view do
     assign(:user, user)
     render
   }
+
   it 'Render user info' do
     expect(rendered).to include('Scott Wells')
     expect(rendered).to include('test bio')
