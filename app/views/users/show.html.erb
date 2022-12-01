@@ -1,5 +1,5 @@
 <main class="user-show">
-  <section class="user">
+  <section class="user-full-info">
     <%= render "users/user_tag", user: @user %>
     <h3>Bio</h3>
     <p><%= @user.bio %></p>
@@ -8,7 +8,7 @@
     <h3>Posts (<%= @user.posts.count %>)</h3>
     <% @user.recent_posts.each do |post| %>
       <article class="post-preview">
-        <%= render "posts/post_tag", post: post %>
+        <%= render "posts/post_preview", post: post %>
       </article>
     <% end %>
     <%= link_to 'see all posts', user_posts_path(@user) %>
