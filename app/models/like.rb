@@ -5,7 +5,7 @@ class Like < ApplicationRecord
   validates :posts_id, uniqueness: { scope: :users_id }
 
   validates :post, presence: true
-	validates :author, presence: true
+  validates :author, presence: true
 
   after_save :increment_like_couter
 

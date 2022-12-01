@@ -1,35 +1,31 @@
 require 'rails_helper'
 
 describe 'show one post', type: :feature do
-  let!(:post_user) {
+  let!(:post_user) do
     User.create(
       name: 'Tom',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'Teacher from Mexico.'
     )
-  }
-  let!(:posts) {
+  end
+  let!(:posts) do
     [
       Post.create(author: post_user,
-        title: 'Hello',
-        text: 'This is my 1er post'
-      ),
+                  title: 'Hello',
+                  text: 'This is my 1er post'),
       Post.create(author: post_user,
-        title: 'Hello',
-        text: 'This is my 2er post'
-      ),
+                  title: 'Hello',
+                  text: 'This is my 2er post'),
       Post.create(author: post_user,
-        title: 'Hello',
-        text: 'This is my 3er post'
-      ),
+                  title: 'Hello',
+                  text: 'This is my 3er post'),
       Post.create(author: post_user,
-        title: 'Hello',
-        text: 'This is my 4er post'
-      ),
+                  title: 'Hello',
+                  text: 'This is my 4er post')
     ]
-  }
+  end
 
-  context "visit /users/:user_id" do
+  context 'visit /users/:user_id' do
     before(:example) { visit user_posts_path post_user }
 
     it 'Do not redirect' do
@@ -44,13 +40,11 @@ describe 'show one post', type: :feature do
       expect(page).to_not have_text(post_user.bio)
     end
 
-    it "render all posts" do
+    it 'render all posts' do
       posts.each do |post|
         expect(page).to have_text(post.title)
         expect(page).to have_text(post.text)
       end
     end
-
-
   end
 end
