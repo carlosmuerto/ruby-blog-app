@@ -40,10 +40,9 @@ describe 'show one post', type: :feature do
       expect(page).to_not have_text(post_user.bio)
     end
 
-    it 'render all posts' do
-      posts.each do |post|
+    it 'render recents 3 posts' do
+      posts.last(3).each do |post|
         expect(page).to have_text(post.title)
-        expect(page).to have_text(post.text)
       end
     end
   end
