@@ -1,0 +1,9 @@
+<%= link_to user_post_path post.author, post do %>
+	<h3><%= post.title %></h3>
+<% end %>
+<p><%= post.text %></p>
+<div class="post-stats">
+	<span class="updated-at"> last edit: <%= post.updated_at.localtime %></span>
+	<span class="likes-count"> Likes: <%= post.likes_counter %></span>
+	<span class="comment-count"> comments: <%= post.comments_counter %></span>
+</div>

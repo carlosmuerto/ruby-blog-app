@@ -1,0 +1,22 @@
+.post-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h3 {
+    padding: 0.5rem 0;
+    font-size: 2rem;
+  }
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 5ch;
+  }
+
+  .post-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+  }
+}

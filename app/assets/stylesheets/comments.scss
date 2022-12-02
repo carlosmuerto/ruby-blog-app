@@ -1,0 +1,21 @@
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+
+  .comment {
+    .comment-author {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .comment-text {
+      padding: 0.5rem;
+    }
+
+    .comment-updated-at {
+      font-size: 0.75rem;
+    }
+  }
+}

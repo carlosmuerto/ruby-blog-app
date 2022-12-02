@@ -4,6 +4,8 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'users_id'
 
+  paginates_per 5
+
   after_save :increment_author_posts_couter
 
   def recent_comments
@@ -11,6 +13,7 @@ class Post < ApplicationRecord
   end
 
   validates :title, presence: true
+  validates :author, presence: true
   validates :title, length: { maximum: 250 }
   validates :comments_counter, :likes_counter, numericality: {
     only_integer: true,

@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: 'users_id'
   has_many :comments, foreign_key: 'users_id'
 
+  paginates_per 10
+
   validates :name, presence: true
   validates :posts_count, numericality: {
     only_integer: true,
@@ -10,6 +12,6 @@ class User < ApplicationRecord
   }
 
   def recent_posts
-    posts.order(created_at: :desc).limit(3)
+    posts.order(updated_at: :desc).limit(3)
   end
 end

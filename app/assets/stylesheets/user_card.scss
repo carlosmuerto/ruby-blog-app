@@ -1,0 +1,22 @@
+
+.user-card {
+  display: flex;
+  padding: 0.5rem 1rem;
+
+  .user-info {
+    display: flex;
+    padding: 1rem 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+
+    h2.user-name {
+      align-self: flex-start;
+    }
+
+    .post-count {
+      align-self: flex-end;
+    }
+  }
+}

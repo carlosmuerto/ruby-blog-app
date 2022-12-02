@@ -1,0 +1,38 @@
+main.all-users {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+
+  h1 {
+    padding: 0.5rem 2rem;
+  }
+
+  nav.pagination {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+main.user-show {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+
+  section.user-full-info {
+    .user-bio {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  section.recent-posts {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .see-all-posts-btn {
+      padding: 0.5rem 1rem;
+      border: 2px solid black;
+    }
+  }
+}

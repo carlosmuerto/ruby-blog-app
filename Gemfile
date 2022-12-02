@@ -5,7 +5,13 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'composite_primary_keys', '~>14.0'
 
+# handle pagination
+gem 'kaminari'
+
 ruby '3.1.2'
+
+# sass precompliler
+gem 'sass-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
