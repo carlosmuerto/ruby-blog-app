@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
 
   after_save :increment_comment_couter
 
-	paginates_per 10
+  paginates_per 10
 
   private
 
