@@ -1,9 +1,9 @@
 <div class="comment" id=<%="comment-#{comment.id}"%>>
-	<%= link_to user_path comment.author do %>
-		<h4 class="comment-author">
+	<h4 class="comment-author">
+		<%= link_to user_path comment.author do %>
 			<%= comment.author.name %>
-		</h4>
-	<% end %>
+		<% end %>
+	</h4>
 	<p class="comment-text"><%= comment.text %></p>
 	<span class="comment-updated-at"> last edit: <%= comment.updated_at.localtime %></span>
 </div>

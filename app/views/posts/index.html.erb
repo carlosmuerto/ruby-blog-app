@@ -1,12 +1,15 @@
 <main class="user-posts">
-	<section class="user-preview"  id=<%= "user_id_#{@user.id}" %>>
+	<section class="user-card"  id=<%= "user_id_#{@user.id}" %>>
 		<%= render "users/user_tag", user: @user %>
 	</section>
 	<section class="all-posts">
-		<h2>Posts (<%= @user.posts.count %>)</h2>
+		<h2> All Posts (<%= @user.posts.count %>)</h2>
 		<% @posts.order(updated_at: :desc).each do |post| %>
-				<%= render "posts/post_preview", post: post %>
-				<div class="recent-comments">
+			<article class="post-card"   id=<%= "post_id_#{post.id}" %>>
+				<div class="post-preview">
+					<%= render "posts/post_preview", post: post %>
+				</div>
+				<div class="recent-comments comments-list">
 					<% post.recent_comments.each do |comment| %>
 						<%= render "posts/comment", comment: comment %>
 					<% end %>

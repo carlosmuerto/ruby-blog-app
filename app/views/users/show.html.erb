@@ -1,16 +1,20 @@
 <main class="user-show">
-  <section class="user-full-info">
-    <%= render "users/user_tag", user: @user %>
-    <h3>Bio</h3>
-    <p><%= @user.bio %></p>
+  <section class="user-full-info" id=<%= "user_id_#{@user.id}" %>>
+		<div class="user-card">
+			<%= render "users/user_tag", user: @user %>
+		</div>
+		<div class="user-bio">
+			<h3>Bio</h3>
+			<p><%= @user.bio %></p>
+		</div>
   </section>
   <section class="recent-posts">
-    <h3>Posts (<%= @user.posts.count %>)</h3>
+    <h3>recents posts</h3>
     <% @user.recent_posts.each do |post| %>
-      <article class="post-preview">
+      <article class="post-preview" id=<%= "post_id_#{post.id}" %>>
         <%= render "posts/post_preview", post: post %>
       </article>
     <% end %>
-    <%= link_to 'see all posts', user_posts_path(@user) %>
+    <%= link_to "see all posts (#{@user.posts.count})", user_posts_path(@user), class: "see-all-posts-btn" %>
   </section>
 </main>
