@@ -11,10 +11,9 @@ class User < ApplicationRecord
     greater_than_or_equal_to: 0
   }
 
-	def post_liked? post
-		likes.find_by(post: post).present?
-	end
-
+  def post_liked?(post)
+    likes.find_by(post:).present?
+  end
 
   def recent_posts
     posts.order(updated_at: :desc).limit(3)

@@ -3,5 +3,5 @@ class ApplicationController < ActionController::Base
     User.all.first
   end
 
-	helper_method :current_user
+  helper_method :current_user
 end
