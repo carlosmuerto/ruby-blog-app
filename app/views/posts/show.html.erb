@@ -4,8 +4,8 @@
 
 			<span class="by-author">
 				by:
-				<%= link_to user_path @user do %>
-				<%=@user.name%>
+				<%= link_to user_path @post.author do %>
+				<%=@post.author.name%>
 		<% end %>
 			</span>
 	</h1>
@@ -13,9 +13,7 @@
 		<p class="post-text"><%=@post.text%></p>
 		<div class="post-stats">
 
-			<%= form_with model: @like, url: user_post_like_path(@post.author, @post) do |f| %>
-				<%= f.submit "like", disable_with: 'liking...', class: 'like-btn' %>
-			<% end %>
+			<%= render "likes/new", post: @post %>
 
 			<span class="updated-at"> last edit: <%= @post.updated_at.localtime %></span>
 			<span class="likes-count"> Likes: <%= @post.likes_counter %></span>
@@ -24,14 +22,10 @@
 	</section>
 	<section class="comments-list">
 
-		<%= form_with model: @comment, url: user_post_comments_path(@post.author, @post), class: 'new-comment' do |f| %>
-			<%= f.label :text, 'new Comment' %>
-			<%= f.text_area :text %>
-			<%= f.submit "Comment", disable_with: 'Commenting...', class: 'submit-comment-btn' %>
-		<% end %>
+		<%= render "comments/new", post: @post %>
 
 		<% @comments.each do |comment| %>
-			<%= render "posts/comment", comment: comment %>
+			<%= render "comments/show", comment: comment %>
 		<% end %>
 		<%= paginate @comments %>
 	</section>
