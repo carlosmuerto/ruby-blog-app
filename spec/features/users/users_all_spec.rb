@@ -22,7 +22,7 @@ describe 'show all Users', type: :feature do
         name: 'Tom 4',
         photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
         bio: 'Teacher 4 from Mexico.'
-      )
+      ),
     ]
   end
 
@@ -37,8 +37,8 @@ describe 'show all Users', type: :feature do
       expect(page).to have_text('All Users')
     end
 
-    it 'show all users info' do
-      users.each do |user|
+    it 'show fisrt 10 users info' do
+      users.first(10).each do |user|
         expect(page).to have_text(user.name)
       end
     end
