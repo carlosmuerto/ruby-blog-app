@@ -38,7 +38,7 @@ describe 'show all Users', type: :feature do
     end
 
     it 'show page 1 users info' do
-      User.all.page().each do |user|
+      User.all.page.each do |user|
         expect(page).to have_text(user.name)
       end
     end
