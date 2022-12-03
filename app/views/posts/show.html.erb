@@ -23,6 +23,13 @@
 		</div>
 	</section>
 	<section class="comments-list">
+
+		<%= form_with model: @comment, url: user_post_comments_path(@post.author, @post) do |f| %>
+			<%= f.label :text %>
+			<%= f.text_area :text %>
+			<%= f.submit "Comment", disable_with: 'Commenting...' %>
+		<% end %>
+
 		<% @comments.each do |comment| %>
 			<%= render "posts/comment", comment: comment %>
 		<% end %>

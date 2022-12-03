@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     @user = User.find params[:user_id]
     @post = Post.find params[:id]
     @comments = @post.comments.page params[:page]
+		@comment = Comment.new
+		@comment.author = current_user
   end
 
 	def new
