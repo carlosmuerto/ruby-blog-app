@@ -4,22 +4,28 @@
 
 			<span class="by-author">
 				by:
-				<%= link_to user_path @user do %>
-				<%=@user.name%>
+				<%= link_to user_path @post.author do %>
+				<%=@post.author.name%>
 		<% end %>
 			</span>
 	</h1>
 	<section class="post-content">
 		<p class="post-text"><%=@post.text%></p>
 		<div class="post-stats">
+
+			<%= render "likes/new", post: @post %>
+
 			<span class="updated-at"> last edit: <%= @post.updated_at.localtime %></span>
 			<span class="likes-count"> Likes: <%= @post.likes_counter %></span>
 			<span class="comment-count"> comments: <%= @post.comments_counter %></span>
 		</div>
 	</section>
 	<section class="comments-list">
+
+		<%= render "comments/new", post: @post %>
+
 		<% @comments.each do |comment| %>
-			<%= render "posts/comment", comment: comment %>
+			<%= render "comments/show", comment: comment %>
 		<% end %>
 		<%= paginate @comments %>
 	</section>

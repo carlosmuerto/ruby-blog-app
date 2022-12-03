@@ -1,0 +1,19 @@
+<main class="post-new">
+	<section class="user-card"  id=<%= "user_id_#{@user.id}" %>>
+		<%= render "users/user_tag", user: @user %>
+	</section>
+	<section class="new-posts">
+		<h1>new Post</h1>
+
+			<%= form_with model: @post, url: user_posts_path(@user), class: 'post-form' do |f| %>
+				<%= f.label :title %>
+				<%= f.text_field :title, maxlength:250 %>
+
+				<%= f.label :text %>
+				<%= f.text_area :text %>
+
+				<%= f.submit "Post", disable_with: 'Posting...' %>
+			<% end %>
+
+	</section>
+</main>

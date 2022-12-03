@@ -1,0 +1,5 @@
+<%= form_with model: Comment, url: user_post_comments_path(post.author, post), class: 'new-comment' do |f| %>
+	<%= f.label :text, 'new Comment' %>
+	<%= f.text_area :text %>
+	<%= f.submit "Comment", disable_with: 'Commenting...', class: 'submit-comment-btn' %>
+<% end %>

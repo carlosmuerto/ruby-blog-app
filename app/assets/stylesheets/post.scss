@@ -37,6 +37,10 @@ main.full-post {
       display: flex;
       gap: 2rem;
       justify-content: flex-end;
+
+      .like-btn {
+        padding: 0 1rem;
+      }
     }
   }
 
