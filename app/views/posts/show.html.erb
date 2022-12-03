@@ -12,6 +12,11 @@
 	<section class="post-content">
 		<p class="post-text"><%=@post.text%></p>
 		<div class="post-stats">
+
+			<%= form_with model: @like, url: user_post_like_path(@post.author, @post) do |f| %>
+				<%= f.submit "like", disable_with: 'liking...' %>
+			<% end %>
+
 			<span class="updated-at"> last edit: <%= @post.updated_at.localtime %></span>
 			<span class="likes-count"> Likes: <%= @post.likes_counter %></span>
 			<span class="comment-count"> comments: <%= @post.comments_counter %></span>

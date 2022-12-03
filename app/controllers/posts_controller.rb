@@ -16,6 +16,15 @@ class PostsController < ApplicationController
 		@post.author = @user
 	end
 
+	def like
+		@post = Post.find params[:post_id]
+
+		like = Like.create(author: current_user, post: @post)
+
+		redirect_to user_post_path @post.author, @post
+	end
+
+
 	def create
 		@post = Post.new(post_params)
 		@post.author = current_user
