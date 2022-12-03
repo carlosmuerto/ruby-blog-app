@@ -37,8 +37,8 @@ describe 'show all Users', type: :feature do
       expect(page).to have_text('All Users')
     end
 
-    it 'show fisrt 10 users info' do
-      User.all.first(10).each do |user|
+    it 'show page 1 users info' do
+      User.all.page().each do |user|
         expect(page).to have_text(user.name)
       end
     end
