@@ -8,40 +8,38 @@ class PostsController < ApplicationController
     @user = User.find params[:user_id]
     @post = Post.find params[:id]
     @comments = @post.comments.page params[:page]
-		@comment = Comment.new
-		@comment.author = current_user
+    @comment = Comment.new
+    @comment.author = current_user
   end
 
-	def new
-		@user = current_user
-		@post = Post.new
-		@post.author = @user
-	end
+  def new
+    @user = current_user
+    @post = Post.new
+    @post.author = @user
+  end
 
-	def like
-		@post = Post.find params[:post_id]
+  def like
+    @post = Post.find params[:post_id]
 
-		like = Like.create(author: current_user, post: @post)
+    Like.create(author: current_user, post: @post)
 
-		redirect_to user_post_path @post.author, @post
-	end
+    redirect_to user_post_path @post.author, @post
+  end
 
+  def create
+    @post = Post.new(post_params)
+    @post.author = current_user
 
-	def create
-		@post = Post.new(post_params)
-		@post.author = current_user
+    if @post.save
+      redirect_to user_post_path @post.author, @post
+    else
+      render :new
+    end
+  end
 
-		if @post.save
-			redirect_to user_post_path @post.author, @post
-		else
-			render :new
-		end
-	end
+  private
 
-	private
-
-	def post_params
-		params.require(:post).permit(:title, :text)
-	end
-
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
