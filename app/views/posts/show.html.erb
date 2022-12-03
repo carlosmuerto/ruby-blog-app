@@ -14,7 +14,7 @@
 		<div class="post-stats">
 
 			<%= form_with model: @like, url: user_post_like_path(@post.author, @post) do |f| %>
-				<%= f.submit "like", disable_with: 'liking...' %>
+				<%= f.submit "like", disable_with: 'liking...', class: 'like-btn' %>
 			<% end %>
 
 			<span class="updated-at"> last edit: <%= @post.updated_at.localtime %></span>
@@ -24,10 +24,10 @@
 	</section>
 	<section class="comments-list">
 
-		<%= form_with model: @comment, url: user_post_comments_path(@post.author, @post) do |f| %>
-			<%= f.label :text %>
+		<%= form_with model: @comment, url: user_post_comments_path(@post.author, @post), class: 'new-comment' do |f| %>
+			<%= f.label :text, 'new Comment' %>
 			<%= f.text_area :text %>
-			<%= f.submit "Comment", disable_with: 'Commenting...' %>
+			<%= f.submit "Comment", disable_with: 'Commenting...', class: 'submit-comment-btn' %>
 		<% end %>
 
 		<% @comments.each do |comment| %>

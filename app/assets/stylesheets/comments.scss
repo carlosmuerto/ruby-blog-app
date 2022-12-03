@@ -4,6 +4,26 @@
   gap: 0.5rem;
   padding: 0.5rem 0;
 
+  .new-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+
+    label {
+      align-self: flex-start;
+    }
+
+    #comment_text {
+      width: 100%;
+    }
+
+    .submit-comment-btn {
+      padding: 0 2rem;
+      align-self: flex-end;
+    }
+  }
+
   .comment {
     .comment-author {
       font-size: 1rem;
