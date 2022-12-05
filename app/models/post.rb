@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   after_save :increment_author_posts_couter
 
   def recent_comments
-    comments.order(created_at: :desc).limit(5)
+    comments.order(created_at: :desc).limit(5).includes(:author)
   end
 
   validates :title, presence: true
