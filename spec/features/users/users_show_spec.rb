@@ -33,7 +33,7 @@ describe 'show one User', type: :feature do
     end
 
     it "I can see the user's profile picture." do
-			pending("this is pending")
+			pending("this is pending!!!!!")
 			this_should_not_get_executed
 		end
 
