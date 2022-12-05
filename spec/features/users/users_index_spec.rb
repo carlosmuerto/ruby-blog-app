@@ -22,7 +22,7 @@ describe 'show all Users', type: :feature do
         name: 'Tom 4',
         photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
         bio: 'Teacher 4 from Mexico.'
-      )
+      ),
     ]
   end
 
@@ -33,14 +33,26 @@ describe 'show all Users', type: :feature do
       expect(current_path).to eq(users_path)
     end
 
-    it 'show page title' do
-      expect(page).to have_text('All Users')
-    end
+    it "I can see the username of all other users." do
+			User.page().all.each do |user|
+				expect(page).to have_content user.name
+			end
+		end
 
-    it 'show page 1 users info' do
-      User.all.page.each do |user|
-        expect(page).to have_text(user.name)
-      end
-    end
+    it "I can see the profile picture for each user." do
+			User.page().all.each do |user|
+				expect(page.find("#user_id_#{user.id}").find('.user-photo')['src']).to have_content user.photo
+			end
+		end
+
+    it "I can see the number of posts each user has written." do
+			pending("this is pending")
+			this_should_not_get_executed
+		end
+
+    it "When I click on a user, I am redirected to that user's show page." do
+			pending("this is pending")
+			this_should_not_get_executed
+		end
   end
 end

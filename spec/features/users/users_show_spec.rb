@@ -32,16 +32,26 @@ describe 'show one User', type: :feature do
       expect(current_path).to eq(user_path(post_user.id))
     end
 
-    it 'render user name' do
-      expect(page).to have_text(post_user.name)
-    end
+    it "I can see the user's profile picture." do
+			pending("this is pending")
+			this_should_not_get_executed
+		end
 
-    it 'render user bio' do
-      expect(page).to have_text(post_user.bio)
-    end
+		it "I can see the user's username." do
+			expect(page).to have_text(post_user.name)
+		end
 
-    it 'render only recents posts' do
-      post_user.recent_posts.each do |post|
+		it "I can see the number of posts the user has written." do
+			pending("this is pending")
+			this_should_not_get_executed
+		end
+
+		it "I can see the user's bio." do
+			expect(page).to have_text(post_user.bio)
+		end
+
+		it "I can see the user's first 3 posts." do
+			post_user.recent_posts.each do |post|
         expect(page).to have_text(post.title)
         expect(page).to have_text(post.text)
       end
@@ -49,6 +59,21 @@ describe 'show one User', type: :feature do
       older_post.each do |post|
         expect(page).to_not have_text(post.text)
       end
-    end
+		end
+
+		it "I can see a button that lets me view all of a user's posts." do
+			pending("this is pending")
+			this_should_not_get_executed
+		end
+
+		it "When I click a user's post, it redirects me to that post's show page." do
+			pending("this is pending")
+			this_should_not_get_executed
+		end
+
+		it "When I click to see all posts, it redirects me to the user's post's index page." do
+			pending("this is pending")
+			this_should_not_get_executed
+		end
   end
 end
