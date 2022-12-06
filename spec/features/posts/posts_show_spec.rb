@@ -21,19 +21,36 @@ describe 'show one post', type: :feature do
     end
 
     it "I can see the post's title." do
-      expect(page).to have_text post_user.name
+      expect(page).to have_text post.title
     end
 
-    it 'I can see who wrote the post.'
+    it 'I can see who wrote the post.' do
+			expect(page).to have_text "by: #{post_user.name}"
+		end
 
-    it 'I can see how many comments it has.'
+    it 'I can see how many comments it has.' do
+			expect(page).to have_text("comments: #{post.comments.count}")
+		end
 
-    it 'I can see how many likes it has.'
+    it 'I can see how many likes it has.' do
+			expect(page).to have_text("Likes: #{post.likes.count}")
+		end
 
-    it 'I can see the post body.'
+    it 'I can see the post body.' do
+			expect(page).to have_text(post.text.first(10).strip)
+			expect(page).to have_text(post.text.last(10).strip)
+		end
 
-    it 'I can see the username of each commentor.'
+    it 'I can see the username of each commentor.' do
+			post.comments.page.includes(:author).each do |comment|
+				expect(page.find("#comment-#{comment.id}")).to have_text(comment.author.name)
+			end
+		end
 
-    it 'I can see the comment each commentor left.'
+    it 'I can see the comment each commentor left.' do
+			post.comments.page.includes(:author).each do |comment|
+				expect(page.find("#comment-#{comment.id}")).to have_text(comment.text)
+			end
+		end
   end
 end
