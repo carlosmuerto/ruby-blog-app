@@ -52,5 +52,22 @@ describe 'show one post', type: :feature do
 				expect(page.find("#comment-#{comment.id}")).to have_text(comment.text)
 			end
 		end
+
+		context "like functionality" do
+
+			it 'I has like button' do
+				expect(page).to have_css('.like-btn')
+			end
+
+			it 'when press like button add one to like' do
+				prev_like = post.likes.count
+				expect(page).to have_text("Likes: #{prev_like}")
+				page.find(".like-btn").click
+				expect(current_path).to eq user_post_path post_user, post
+				expect(page).to have_text("Likes: #{(prev_like + 1)}")
+			end
+
+		end
+
   end
 end
