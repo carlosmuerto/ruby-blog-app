@@ -72,11 +72,6 @@ describe 'posts/index.html.erb', type: :feature do
       this_should_not_get_executed
     end
 
-    it 'I can see a section for pagination if there are more posts than fit on the view.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
-
     it "When I click on a post, it redirects me to that post's show page." do
       pending('this is pending')
       this_should_not_get_executed
