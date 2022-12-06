@@ -26,6 +26,7 @@ describe 'show all Users', type: :feature do
     ]
   end
 
+
   context 'visit /users' do # rubocop:disable Metrics/BlockLength
     before(:example) do
       visit users_path
@@ -35,13 +36,13 @@ describe 'show all Users', type: :feature do
       expect(current_path).to eq(users_path)
     end
 
-    it 'I can see the username of all other users.' do
+    it 'I can see the username of all other users' do
       User.page.all.each do |user|
         expect(page).to have_content user.name
       end
     end
 
-    it 'I can see the profile picture for each user.' do
+    it 'I can see the profile picture for each user' do
       User.page.all.each do |user|
         expect(page.find("#user_id_#{user.id}").find('.user-photo')['src']).to have_content user.photo
       end
