@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe 'Users', type: :request do
-	let!(:user) {
-		User.first
-	}
+  let!(:user) do
+    User.first
+  end
 
   context ' GET /users' do
     before(:example) { get users_path }

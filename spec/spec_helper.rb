@@ -18,9 +18,8 @@ require 'database_cleaner/active_record'
 DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
-
   config.before(:suite) do
-		DatabaseCleaner.clean
+    DatabaseCleaner.clean
     Rails.application.load_seed # loading seeds
   end
 
