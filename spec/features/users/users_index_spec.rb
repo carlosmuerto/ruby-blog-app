@@ -26,7 +26,7 @@ describe 'show all Users', type: :feature do
     ]
   end
 
-  context 'visit /users' do # rubocop:disable Metrics/BlockLength
+  context 'visit /users' do
     before(:example) do
       visit users_path
     end
