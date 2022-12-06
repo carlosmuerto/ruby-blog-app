@@ -10,6 +10,9 @@ gem 'kaminari'
 
 ruby '3.1.2'
 
+#handle auth
+gem 'devise'
+
 # sass precompliler
 gem 'sass-rails'
 
