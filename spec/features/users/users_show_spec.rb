@@ -57,10 +57,10 @@ describe 'show one User', type: :feature do
       end
     end
 
-  it 'I can see the first comments on a post.' do
-    pending('this is pending')
-    this_should_not_get_executed
-  end
+    it 'I can see the first comments on a post.' do
+      pending('this is pending')
+      this_should_not_get_executed
+    end
 
     it "I can see a button that lets me view all of a user's posts." do
       pending('this is pending')
