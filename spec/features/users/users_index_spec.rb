@@ -26,7 +26,6 @@ describe 'show all Users', type: :feature do
     ]
   end
 
-
   context 'visit /users' do # rubocop:disable Metrics/BlockLength
     before(:example) do
       visit users_path
@@ -58,7 +57,7 @@ describe 'show all Users', type: :feature do
       this_should_not_get_executed
     end
 
-    it 'I can see the first 3 users on the first page.' do
+    it 'I can see the first 3 users on the first page' do
       pending('this is pending')
       this_should_not_get_executed
     end
