@@ -30,7 +30,7 @@ describe 'show all Users', type: :feature do
 
     it "When I click on a user, I am redirected to that user's show page." do
       User.page.all.each do |user|
-				click_link user.name
+        click_link user.name
         expect(current_path).to eq user_path user
         visit users_path
       end
