@@ -9,7 +9,7 @@ describe 'show one User', type: :feature do
     post_user.recent_posts
   end
 
-  context 'visit /users/:user_id' do
+  context 'visit /users/:user_id' do # rubocop:disable Metrics/BlockLength
     before(:example) { visit user_path post_user }
 
     it 'Do not redirect' do

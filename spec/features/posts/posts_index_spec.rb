@@ -9,7 +9,7 @@ describe 'posts/index.html.erb', type: :feature do
     post_user.posts.order(updated_at: :desc).page
   end
 
-  context 'visit /users/:user_id/posts' do
+  context 'visit /users/:user_id/posts' do # rubocop:disable Metrics/BlockLength
     before(:example) { visit user_posts_path post_user }
 
     it 'Do not redirect' do
