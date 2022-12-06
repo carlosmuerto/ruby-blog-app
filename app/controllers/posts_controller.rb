@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.includes(:posts).find(params[:user_id])
-    @posts = @user.posts.page(params[:page]).per(2)
+    @posts = @user.posts.page(params[:page])
   end
 
   def show

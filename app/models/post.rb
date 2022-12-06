@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'users_id'
 
-  paginates_per 5
+  paginates_per 2
 
   after_save :increment_author_posts_couter
 
