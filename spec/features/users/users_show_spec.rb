@@ -75,5 +75,20 @@ describe 'show one User', type: :feature do
 			pending("this is pending")
 			this_should_not_get_executed
 		end
+
+    it "I can see a section for statistics." do
+      pending("this is pending")
+      this_should_not_get_executed
+    end
+
+    it "I can see the total comments that have been posted on the user's posts." do
+      pending("this is pending")
+      this_should_not_get_executed
+    end
+
+    it "I can see the number of comments per post." do
+      pending("this is pending")
+      this_should_not_get_executed
+    end
   end
 end
