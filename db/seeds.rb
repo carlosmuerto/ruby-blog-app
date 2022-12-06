@@ -11,69 +11,69 @@ lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pos
 big_lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a urna fringilla, cursus elit non, sagittis quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed et urna vel ante ultrices volutpat et sed risus. Aenean vestibulum urna a metus vestibulum, sit amet ornare dui mollis. Pellentesque tincidunt congue lorem quis scelerisque. Aenean pellentesque ornare justo sed molestie. Vestibulum sagittis eget tortor tincidunt cursus. Nunc ac scelerisque nulla. Aliquam molestie laoreet consectetur. Integer viverra nunc at diam accumsan vehicula.\nPraesent porta, urna eu consectetur tempor, enim metus porttitor nibh, non hendrerit orci dui eu ligula. Maecenas posuere lorem nec mollis iaculis. Suspendisse in lorem urna. Nullam sollicitudin erat et eleifend tristique. Duis in libero orci. Aliquam quis convallis erat, non cursus erat. Morbi non massa nec orci mollis efficitur. Nunc varius nulla sed nisl ultrices dictum. Nullam lacinia nisl ac lacinia laoreet. Praesent venenatis sapien ut risus ultricies, ac fringilla odio tincidunt. Aliquam nec pretium augue. Nulla laoreet mattis mauris, a mattis dui feugiat sed. Aliquam eros dolor, feugiat sit amet maximus et, aliquet viverra mi. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\nQuisque consectetur quam placerat enim lacinia, ac commodo lorem rhoncus. Cras enim elit, egestas at commodo nec, molestie sed ante. Morbi at venenatis ipsum. Pellentesque varius ac urna quis mattis. Cras accumsan libero a dui sodales condimentum. Cras placerat lacus ut nunc condimentum, sit amet laoreet augue suscipit. Duis sed eleifend neque, et lobortis orci."
 
 alicia_user = User.create(
-	name: 'Alicia Addy',
-	photo: 'https://randomuser.me/api/portraits/women/65.jpg',
-	bio: lorem_ipsum,
+  name: 'Alicia Addy',
+  photo: 'https://randomuser.me/api/portraits/women/65.jpg',
+  bio: lorem_ipsum,
 )
 
 scott_user = User.create(
-	name: 'Scott Wells',
-	photo: 'https://randomuser.me/api/portraits/men/46.jpg',
-	bio: lorem_ipsum,
+  name: 'Scott Wells',
+  photo: 'https://randomuser.me/api/portraits/men/46.jpg',
+  bio: lorem_ipsum,
 )
 
 ella_user = User.create(
-	name: 'Ella Green',
-	photo: 'https://randomuser.me/api/portraits/women/55.jpg',
-	bio: lorem_ipsum,
+  name: 'Ella Green',
+  photo: 'https://randomuser.me/api/portraits/women/55.jpg',
+  bio: lorem_ipsum,
 )
 
 emine_user = User.create(
-	name: 'Emine Zwick',
-	photo: 'https://randomuser.me/api/portraits/women/76.jpg',
-	bio: lorem_ipsum,
+  name: 'Emine Zwick',
+  photo: 'https://randomuser.me/api/portraits/women/76.jpg',
+  bio: lorem_ipsum,
 )
 
 maxime_user = User.create(
-	name: 'Maxime Boyer',
-	photo: 'https://randomuser.me/api/portraits/men/30.jpg',
-	bio: lorem_ipsum,
+  name: 'Maxime Boyer',
+  photo: 'https://randomuser.me/api/portraits/men/30.jpg',
+  bio: lorem_ipsum,
 )
 
 luise_user = User.create(
-	name: 'Luise Yilmaz',
-	photo: 'https://randomuser.me/api/portraits/women/74.jpg',
-	bio: lorem_ipsum,
+  name: 'Luise Yilmaz',
+  photo: 'https://randomuser.me/api/portraits/women/74.jpg',
+  bio: lorem_ipsum,
 )
 
 hans_user = User.create(
-	name: 'Hans-Heinrich Euler',
-	photo: 'https://randomuser.me/api/portraits/men/85.jpg',
-	bio: lorem_ipsum,
+  name: 'Hans-Heinrich Euler',
+  photo: 'https://randomuser.me/api/portraits/men/85.jpg',
+  bio: lorem_ipsum,
 )
 
 nikolaj_user = User.create(
-	name: 'Nikolaj Larsen',
-	photo: 'https://randomuser.me/api/portraits/men/5.jpg',
-	bio: lorem_ipsum,
+  name: 'Nikolaj Larsen',
+  photo: 'https://randomuser.me/api/portraits/men/5.jpg',
+  bio: lorem_ipsum,
 )
 
 felix_user = User.create(
-	name: 'Felix Lavoie',
-	photo: 'https://randomuser.me/api/portraits/men/1.jpg',
-	bio: lorem_ipsum,
+  name: 'Felix Lavoie',
+  photo: 'https://randomuser.me/api/portraits/men/1.jpg',
+  bio: lorem_ipsum,
 )
 
 noah_user = User.create(
-	name: 'Noah Knight',
-	photo: 'https://randomuser.me/api/portraits/men/39.jpg',
-	bio: lorem_ipsum,
+  name: 'Noah Knight',
+  photo: 'https://randomuser.me/api/portraits/men/39.jpg',
+  bio: lorem_ipsum,
 )
 
 ramon_user = User.create(
-	name: 'Ramon Reyes',
-	photo: 'https://randomuser.me/api/portraits/men/38.jpg',
-	bio: lorem_ipsum,
+  name: 'Ramon Reyes',
+  photo: 'https://randomuser.me/api/portraits/men/38.jpg',
+  bio: lorem_ipsum,
 )
 
 Post.create(

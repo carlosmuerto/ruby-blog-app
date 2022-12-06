@@ -3,8 +3,7 @@
 		<%= render "users/user_tag", user: @user %>
 	</section>
 	<section class="all-posts">
-		<h2> All Posts (<%= @user.posts.count %>)</h2>
-		<% @posts.order(updated_at: :desc).each do |post| %>
+		<% @posts.each do |post| %>
 			<article class="post-card"   id=<%= "post_id_#{post.id}" %>>
 				<div class="post-preview">
 					<%= render "posts/post_preview", post: post %>

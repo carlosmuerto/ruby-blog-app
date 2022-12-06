@@ -1,12 +1,8 @@
 require 'rails_helper'
 
 describe 'Users', type: :request do
-  let(:user) do
-    User.create(
-      name: 'Tom',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.'
-    )
+  let!(:user) do
+    User.first
   end
 
   context ' GET /users' do
