@@ -1,90 +1,42 @@
 require 'rails_helper'
 
 describe 'posts/index.html.erb', type: :feature do
-  let!(:post_user) do
-    User.create(
-      name: 'Tom',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.'
-    )
-  end
-  let!(:posts) do
-    [
-      Post.create(author: post_user,
-                  title: 'Hello',
-                  text: 'This is my 1er post'),
-      Post.create(author: post_user,
-                  title: 'Hello',
-                  text: 'This is my 2er post'),
-      Post.create(author: post_user,
-                  title: 'Hello',
-                  text: 'This is my 3er post'),
-      Post.create(author: post_user,
-                  title: 'Hello',
-                  text: 'This is my 4er post')
-    ]
-  end
+	let!(:post_user) {
+		Post.first.author
+	}
 
-  context 'visit/users/:user_id' do # rubocop:disable Metrics/BlockLength
-    before(:example) { visit user_post_path post_user, posts[0] }
+	let!(:posts) {
+		post_user.posts
+	}
+
+  context 'visit /users/:user_id/posts' do
+    before(:example) { visit user_posts_path post_user }
 
     it 'Do not redirect' do
-      expect(current_path).to eq(user_post_path(post_user, posts[0]))
+      expect(current_path).to eq user_posts_path post_user
     end
 
     it "I can see the user's profile picture." do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+			expect(page.find("#user_id_#{post_user.id}").find('.user-photo')['src']).to have_content post_user.photo
+		end
 
-    it "I can see the user's username." do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see the user's username."
 
-    it 'I can see the number of posts the user has written.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see the number of posts the user has written."
 
-    it "I can see a post's title." do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see a post's title."
 
-    it "I can see some of the post's body." do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see some of the post's body."
 
-    it 'I can see the first comments on a post.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see the first comments on a post."
 
-    it 'I can see how many comments a post has.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see how many comments a post has."
 
-    it 'I can see how many likes a post has.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see how many likes a post has."
 
-    it "When I click on a post, it redirects me to that post's show page." do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see a section for pagination if there are more posts than fit on the view."
 
-    it "When I click on a user's name, it redirects me to that user's profile page." do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "When I click on a post, it redirects me to that post's show page."
 
-    it 'When I click on the Like button, the number of likes is updated.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
-  end
+	end
 end

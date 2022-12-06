@@ -1,30 +1,6 @@
 require 'rails_helper'
 
 describe 'show all Users', type: :feature do
-  let!(:users) do
-    [
-      User.create(
-        name: 'Tom 1',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher 1 from Mexico.'
-      ),
-      User.create(
-        name: 'Tom 2',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher 2 from Mexico.'
-      ),
-      User.create(
-        name: 'Tom 3',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher 3 from Mexico.'
-      ),
-      User.create(
-        name: 'Tom 4',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher 4 from Mexico.'
-      )
-    ]
-  end
 
   context 'visit /users' do # rubocop:disable Metrics/BlockLength
     before(:example) do
@@ -47,34 +23,19 @@ describe 'show all Users', type: :feature do
       end
     end
 
-    it 'I can see the number of posts each user has written.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
+    it "I can see the number of posts each user has written." do
+			User.page().all.each do |user|
+				expect(page.find("#user_id_#{user.id}")).to have_content "posts: #{user.posts_count}"
+			end
+		end
 
     it "When I click on a user, I am redirected to that user's show page." do
-      pending('this is pending')
-      this_should_not_get_executed
+			User.page().all.each do |user|
+				page.find("#user_id_#{user.id}").find(".user-name").find('a').click
+				expect(current_path).to eq user_path user
+				visit users_path
+			end
     end
 
-    it 'I can see the first 3 users on the first page' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
-
-    it 'I can see the next 3 users on the second page.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
-
-    it 'I can see the next 3 users on the third page.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
-
-    it 'I can see the next 3 users on the fourth page.' do
-      pending('this is pending')
-      this_should_not_get_executed
-    end
   end
 end
