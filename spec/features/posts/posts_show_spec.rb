@@ -53,37 +53,47 @@ describe 'show one post', type: :feature do
     end
 
     it "I can see the post's title." do
-			expect(page).to have_text(post_user.name)
+      expect(page).to have_text(post_user.name)
     end
 
-    it "I can see who wrote the post." do
-			pending("this is pending")
-			this_should_not_get_executed
+    it 'I can see who wrote the post.' do
+      pending('this is pending')
+      this_should_not_get_executed
     end
 
-    it "I can see how many comments it has." do
-			pending("this is pending")
-			this_should_not_get_executed
+    it 'I can see how many comments it has.' do
+      pending('this is pending')
+      this_should_not_get_executed
     end
 
-    it "I can see how many likes it has." do
-			pending("this is pending")
-			this_should_not_get_executed
+    it 'I can see how many likes it has.' do
+      pending('this is pending')
+      this_should_not_get_executed
     end
 
-    it "I can see the post body." do
-			pending("this is pending")
-			this_should_not_get_executed
+    it 'I can see the post body.' do
+      pending('this is pending')
+      this_should_not_get_executed
     end
 
-    it "I can see the username of each commentor." do
-			pending("this is pending")
-			this_should_not_get_executed
+    it 'I can see the username of each commentor.' do
+      pending('this is pending')
+      this_should_not_get_executed
     end
 
-    it "I can see the comment each commentor left." do
-			pending("this is pending")
-			this_should_not_get_executed
+    it 'I can see the comment each commentor left.' do
+      pending('this is pending')
+      this_should_not_get_executed
+    end
+
+    it 'I can see a timestamp with the date and time that the post was created.' do
+      pending('this is pending')
+      this_should_not_get_executed
+    end
+
+    it 'I can see a timestamp with the date and time that each comment was created.' do
+      pending('this is pending')
+      this_should_not_get_executed
     end
   end
 end
