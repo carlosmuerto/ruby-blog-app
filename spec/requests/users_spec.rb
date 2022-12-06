@@ -1,13 +1,9 @@
 require 'rails_helper'
 
 describe 'Users', type: :request do
-  let(:user) do
-    User.create(
-      name: 'Tom',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.'
-    )
-  end
+	let!(:user) {
+		User.first
+	}
 
   context ' GET /users' do
     before(:example) { get users_path }
