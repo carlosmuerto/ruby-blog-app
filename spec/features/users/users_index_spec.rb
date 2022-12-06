@@ -76,6 +76,5 @@ describe 'show all Users', type: :feature do
       pending('this is pending')
       this_should_not_get_executed
     end
-
   end
 end
