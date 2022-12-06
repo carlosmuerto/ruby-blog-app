@@ -46,8 +46,9 @@ describe 'show all Users', type: :feature do
 		end
 
     it "I can see the number of posts each user has written." do
-			pending("this is pending")
-			this_should_not_get_executed
+      User.page().all.each do |user|
+        expect(page).to have_content user.posts_count
+      end
 		end
 
     it "When I click on a user, I am redirected to that user's show page." do
