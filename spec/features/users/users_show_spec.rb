@@ -16,7 +16,9 @@ describe 'show one User', type: :feature do
       expect(current_path).to eq user_path post_user
     end
 
-    it "I can see the user's profile picture."
+    it "I can see the user's profile picture." do
+      expect(page.find("#user_id_#{post_user.id}").find('img')['src']).to have_content post_user.photo
+    end
 
     it "I can see the user's username." do
       expect(page).to have_text(post_user.name)
