@@ -25,7 +25,7 @@ describe 'posts/index.html.erb', type: :feature do
     ]
   end
 
-  context 'visit /users/:user_id' do
+  context 'visit/users/:user_id' do # rubocop:disable Metrics/BlockLength
     before(:example) { visit user_post_path post_user, posts[0] }
 
     it 'Do not redirect' do

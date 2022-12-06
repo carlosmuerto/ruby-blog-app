@@ -25,7 +25,7 @@ describe 'show one User', type: :feature do
     ]
   end
 
-  context 'visit /users/:user_id' do
+  context 'visit /users/:user_id' do # rubocop:disable Metrics/BlockLength
     before(:example) { visit user_path post_user.id }
 
     it 'Do not redirect' do
@@ -55,10 +55,11 @@ describe 'show one User', type: :feature do
         expect(page).to have_text(post.title)
         expect(page).to have_text(post.text)
       end
-      older_post = posts - post_user.recent_posts
-      older_post.each do |post|
-        expect(page).to_not have_text(post.text)
-      end
+    end
+    older_post = posts - post_user.recent_posts
+    older_post.each do |post|
+      expect(page).to_not have_text(post.text)
+    end
 
     it "I can see a button that lets me view all of a user's posts." do
       pending('this is pending')

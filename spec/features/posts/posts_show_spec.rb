@@ -41,7 +41,7 @@ describe 'show one post', type: :feature do
     ]
   end
 
-  context 'visit /users/:user_id' do
+  context 'visit /users/:user_id' do # rubocop:disable Metrics/BlockLength
     before(:example) { visit user_posts_path post_user }
 
     it 'Do not redirect' do
