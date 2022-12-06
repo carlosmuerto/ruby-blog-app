@@ -33,8 +33,7 @@ describe 'show one User', type: :feature do
     end
 
     it "I can see the user's profile picture." do
-			pending("this is pending")
-			this_should_not_get_executed
+			expect(page.find("#user_id_#{post_user.id}").find('img')['src']).to have_content post_user.photo
 		end
 
 		it "I can see the user's username." do
