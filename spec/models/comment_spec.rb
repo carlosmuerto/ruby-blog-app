@@ -1,18 +1,38 @@
 require 'rails_helper'
 
 describe Comment, type: :model do
-  let(:post_user) { User.create(name: 'Tom') }
+  let(:post_user) {
+		let_user = User.new(
+      name: 'Tom',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'poster',
+			email: 'test@test.com',
+			password: 'SuperCoolTestPass'
+    )
+		let_user.confirmed_at = Time.now
+		let_user.save
+		let_user
+	 }
 
   let(:helper_user) do
-    User.create(name: 'Tom helper')
+    let_user = User.new(
+      name: 'Tom helper',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'helper',
+			email: 'test-helper@test.com',
+			password: 'SuperCoolTestPass',
+    )
+		let_user.confirmed_at = Time.now
+		let_user.save
+		let_user
   end
 
-  let(:post) do
+  let!(:post) do
     Post.create(author: post_user, title: 'Hello', text: 'This is my 1er post')
   end
 
   subject do
-    Comment.new(author: helper_user, post:, text: 'hi Tom')
+    Comment.new(author: helper_user, post: post, text: 'hi Tom')
   end
 
   context 'comment belongs_to a author' do
