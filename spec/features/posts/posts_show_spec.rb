@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe 'show one post', type: :feature do
+  before :each do
+    create_and_log_as_test_user
+  end
+  
   let!(:post_user) do
     Post.first.author
   end
