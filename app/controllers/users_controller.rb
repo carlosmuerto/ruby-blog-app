@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # raise ActionController::RoutingError.new('Not Found')
     @user = User.find params[:id]
   end
 end

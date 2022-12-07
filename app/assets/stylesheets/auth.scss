@@ -7,12 +7,14 @@ main.confirmations-new {
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
+  margin-bottom: 5rem;
 
-  h2 {
+  h2,
+  h3 {
     padding: 0.5rem 2rem;
   }
 
-  form {
+  > form {
     display: flex;
     flex-direction: column;
     padding: 0 1rem;
@@ -44,6 +46,28 @@ main.confirmations-new {
 
       > * {
         padding: 0 1rem;
+      }
+    }
+  }
+
+  .cancel-account {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    form.button_to {
+      display: flex;
+      flex-direction: column;
+
+      > * {
+        padding: 0.1rem 2rem;
       }
     }
   }
