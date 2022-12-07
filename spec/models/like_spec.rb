@@ -1,30 +1,30 @@
 require 'rails_helper'
 
 describe Like, type: :model do
-  let(:post_user) {
-		let_user = User.new(
+  let(:post_user) do
+    let_user = User.new(
       name: 'Tom',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'poster',
-			email: 'test@test.com',
-			password: 'SuperCoolTestPass'
+      email: 'test@test.com',
+      password: 'SuperCoolTestPass'
     )
-		let_user.confirmed_at = Time.now
-		let_user.save
-		let_user
-	 }
+    let_user.confirmed_at = Time.now
+    let_user.save
+    let_user
+  end
 
   let(:helper_user) do
     let_user = User.new(
       name: 'Tom helper',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'helper',
-			email: 'test-helper@test.com',
-			password: 'SuperCoolTestPass',
+      email: 'test-helper@test.com',
+      password: 'SuperCoolTestPass'
     )
-		let_user.confirmed_at = Time.now
-		let_user.save
-		let_user
+    let_user.confirmed_at = Time.now
+    let_user.save
+    let_user
   end
 
   let(:post) do

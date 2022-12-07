@@ -70,7 +70,7 @@ RSpec.configure do |config|
   end
 
   def create_and_log_as_test_user
-    user =  User.new(
+    user = User.new(
       name: 'test User',
       bio: 'I was create for testing',
       email: 'test@test.com',
@@ -78,6 +78,6 @@ RSpec.configure do |config|
     )
     user.confirmed_at = Time.now
     user.save
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
   end
 end

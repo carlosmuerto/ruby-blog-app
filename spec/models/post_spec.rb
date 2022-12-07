@@ -6,9 +6,9 @@ describe Post, type: :model do
       name: 'Tom',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'poster',
-			email: 'test@test.com',
-			password: 'SuperCoolTestPass',
-			confirmed_at: Time.now
+      email: 'test@test.com',
+      password: 'SuperCoolTestPass',
+      confirmed_at: Time.now
     )
   end
 
@@ -17,9 +17,9 @@ describe Post, type: :model do
       name: 'Tom helper',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'helper',
-			email: 'test-helper@test.com',
-			password: 'SuperCoolTestPass',
-			confirmed_at: Time.now
+      email: 'test-helper@test.com',
+      password: 'SuperCoolTestPass',
+      confirmed_at: Time.now
     )
   end
 

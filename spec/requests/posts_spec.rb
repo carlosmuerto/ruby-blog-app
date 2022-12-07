@@ -4,7 +4,7 @@ describe 'Posts', type: :request do
   before :each do
     create_and_log_as_test_user
   end
-  
+
   let!(:posts) do
     Post.all
   end
