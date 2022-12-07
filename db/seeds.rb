@@ -10,71 +10,115 @@ lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pos
 
 big_lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a urna fringilla, cursus elit non, sagittis quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed et urna vel ante ultrices volutpat et sed risus. Aenean vestibulum urna a metus vestibulum, sit amet ornare dui mollis. Pellentesque tincidunt congue lorem quis scelerisque. Aenean pellentesque ornare justo sed molestie. Vestibulum sagittis eget tortor tincidunt cursus. Nunc ac scelerisque nulla. Aliquam molestie laoreet consectetur. Integer viverra nunc at diam accumsan vehicula.\nPraesent porta, urna eu consectetur tempor, enim metus porttitor nibh, non hendrerit orci dui eu ligula. Maecenas posuere lorem nec mollis iaculis. Suspendisse in lorem urna. Nullam sollicitudin erat et eleifend tristique. Duis in libero orci. Aliquam quis convallis erat, non cursus erat. Morbi non massa nec orci mollis efficitur. Nunc varius nulla sed nisl ultrices dictum. Nullam lacinia nisl ac lacinia laoreet. Praesent venenatis sapien ut risus ultricies, ac fringilla odio tincidunt. Aliquam nec pretium augue. Nulla laoreet mattis mauris, a mattis dui feugiat sed. Aliquam eros dolor, feugiat sit amet maximus et, aliquet viverra mi. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\nQuisque consectetur quam placerat enim lacinia, ac commodo lorem rhoncus. Cras enim elit, egestas at commodo nec, molestie sed ante. Morbi at venenatis ipsum. Pellentesque varius ac urna quis mattis. Cras accumsan libero a dui sodales condimentum. Cras placerat lacus ut nunc condimentum, sit amet laoreet augue suscipit. Duis sed eleifend neque, et lobortis orci."
 
-alicia_user = User.create(
+alicia_user = User.new(
   name: 'Alicia Addy',
   photo: 'https://randomuser.me/api/portraits/women/65.jpg',
   bio: lorem_ipsum,
+  email: 'Alicia_Addy@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+alicia_user.skip_confirmation!
+alicia_user.save
 
-scott_user = User.create(
+scott_user = User.new(
   name: 'Scott Wells',
   photo: 'https://randomuser.me/api/portraits/men/46.jpg',
   bio: lorem_ipsum,
+  email: 'Scott_Wells@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+scott_user.skip_confirmation!
+scott_user.save
 
-ella_user = User.create(
+ella_user = User.new(
   name: 'Ella Green',
   photo: 'https://randomuser.me/api/portraits/women/55.jpg',
   bio: lorem_ipsum,
+  email: 'Ella_Green@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+ella_user.skip_confirmation!
+ella_user.save
 
-emine_user = User.create(
+emine_user = User.new(
   name: 'Emine Zwick',
   photo: 'https://randomuser.me/api/portraits/women/76.jpg',
   bio: lorem_ipsum,
+  email: 'Emine_Zwick@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+emine_user.skip_confirmation!
+emine_user.save
 
-maxime_user = User.create(
+maxime_user = User.new(
   name: 'Maxime Boyer',
   photo: 'https://randomuser.me/api/portraits/men/30.jpg',
   bio: lorem_ipsum,
+  email: 'Maxime_Boyer@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+maxime_user.skip_confirmation!
+maxime_user.save
 
-luise_user = User.create(
+luise_user = User.new(
   name: 'Luise Yilmaz',
   photo: 'https://randomuser.me/api/portraits/women/74.jpg',
   bio: lorem_ipsum,
+  email: 'Luise_Yilmaz@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+luise_user.skip_confirmation!
+luise_user.save
 
-hans_user = User.create(
+hans_user = User.new(
   name: 'Hans-Heinrich Euler',
   photo: 'https://randomuser.me/api/portraits/men/85.jpg',
   bio: lorem_ipsum,
+  email: 'Hans-Heinrich_Euler@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+hans_user.skip_confirmation!
+hans_user.save
 
-nikolaj_user = User.create(
+nikolaj_user = User.new(
   name: 'Nikolaj Larsen',
   photo: 'https://randomuser.me/api/portraits/men/5.jpg',
   bio: lorem_ipsum,
+  email: 'Nikolaj_Larsen@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+nikolaj_user.skip_confirmation!
+nikolaj_user.save
 
-felix_user = User.create(
+felix_user = User.new(
   name: 'Felix Lavoie',
   photo: 'https://randomuser.me/api/portraits/men/1.jpg',
   bio: lorem_ipsum,
+  email: 'Felix_Lavoie@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+felix_user.skip_confirmation!
+felix_user.save
 
-noah_user = User.create(
+noah_user = User.new(
   name: 'Noah Knight',
   photo: 'https://randomuser.me/api/portraits/men/39.jpg',
   bio: lorem_ipsum,
+  email: 'Noah_Knight@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+noah_user.skip_confirmation!
+noah_user.save
 
-ramon_user = User.create(
+ramon_user = User.new(
   name: 'Ramon Reyes',
   photo: 'https://randomuser.me/api/portraits/men/38.jpg',
   bio: lorem_ipsum,
+  email: 'Ramon_Reyes@test.com',
+  password: '#$taawktljasktlw4aaglj'
 )
+ramon_user.skip_confirmation!
+ramon_user.save
 
 Post.create(
   author: scott_user,
