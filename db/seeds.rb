@@ -15,7 +15,7 @@ alicia_user = User.new(
   photo: 'https://randomuser.me/api/portraits/women/65.jpg',
   bio: lorem_ipsum,
   email: 'Alicia_Addy@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'alicia_addy_pass'
 )
 alicia_user.skip_confirmation!
 alicia_user.save
@@ -25,7 +25,7 @@ scott_user = User.new(
   photo: 'https://randomuser.me/api/portraits/men/46.jpg',
   bio: lorem_ipsum,
   email: 'Scott_Wells@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'scott_wells_pass'
 )
 scott_user.skip_confirmation!
 scott_user.save
@@ -35,7 +35,7 @@ ella_user = User.new(
   photo: 'https://randomuser.me/api/portraits/women/55.jpg',
   bio: lorem_ipsum,
   email: 'Ella_Green@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'ella_green_pass'
 )
 ella_user.skip_confirmation!
 ella_user.save
@@ -45,7 +45,7 @@ emine_user = User.new(
   photo: 'https://randomuser.me/api/portraits/women/76.jpg',
   bio: lorem_ipsum,
   email: 'Emine_Zwick@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'emine_zwick_pass'
 )
 emine_user.skip_confirmation!
 emine_user.save
@@ -55,7 +55,7 @@ maxime_user = User.new(
   photo: 'https://randomuser.me/api/portraits/men/30.jpg',
   bio: lorem_ipsum,
   email: 'Maxime_Boyer@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'maxime_boyer_pass'
 )
 maxime_user.skip_confirmation!
 maxime_user.save
@@ -65,7 +65,7 @@ luise_user = User.new(
   photo: 'https://randomuser.me/api/portraits/women/74.jpg',
   bio: lorem_ipsum,
   email: 'Luise_Yilmaz@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'luise_yilmaz_pass'
 )
 luise_user.skip_confirmation!
 luise_user.save
@@ -75,7 +75,7 @@ hans_user = User.new(
   photo: 'https://randomuser.me/api/portraits/men/85.jpg',
   bio: lorem_ipsum,
   email: 'Hans-Heinrich_Euler@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'hans-heinrich_euler_pass'
 )
 hans_user.skip_confirmation!
 hans_user.save
@@ -85,7 +85,7 @@ nikolaj_user = User.new(
   photo: 'https://randomuser.me/api/portraits/men/5.jpg',
   bio: lorem_ipsum,
   email: 'Nikolaj_Larsen@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'nikolaj_larsen_pass'
 )
 nikolaj_user.skip_confirmation!
 nikolaj_user.save
@@ -95,7 +95,7 @@ felix_user = User.new(
   photo: 'https://randomuser.me/api/portraits/men/1.jpg',
   bio: lorem_ipsum,
   email: 'Felix_Lavoie@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'felix_lavoie_pass'
 )
 felix_user.skip_confirmation!
 felix_user.save
@@ -105,7 +105,7 @@ noah_user = User.new(
   photo: 'https://randomuser.me/api/portraits/men/39.jpg',
   bio: lorem_ipsum,
   email: 'Noah_Knight@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'noah_knight_pass'
 )
 noah_user.skip_confirmation!
 noah_user.save
@@ -115,7 +115,7 @@ ramon_user = User.new(
   photo: 'https://randomuser.me/api/portraits/men/38.jpg',
   bio: lorem_ipsum,
   email: 'Ramon_Reyes@test.com',
-  password: '#$taawktljasktlw4aaglj'
+  password: 'ramon_reyes_pass'
 )
 ramon_user.skip_confirmation!
 ramon_user.save
