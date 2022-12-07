@@ -10,7 +10,7 @@ gem 'kaminari'
 
 ruby '3.1.2'
 
-#handle auth
+# handle auth
 gem 'devise'
 
 # sass precompliler
@@ -65,8 +65,8 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'ffi', '>= 1.0.11'
-	gem 'letter_opener'
-	gem 'launchy'
+  gem 'launchy'
+  gem 'letter_opener'
 end
 
 group :development do

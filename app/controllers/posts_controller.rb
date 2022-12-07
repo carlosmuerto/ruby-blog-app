@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!, :unless => :devise_controller?
+  before_action :authenticate_user!, unless: :devise_controller?
 
   def index
     @user = User.find(params[:user_id])
