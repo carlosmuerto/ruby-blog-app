@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe 'posts/index.html.erb', type: :feature do
+  before :each do
+    create_and_log_as_test_user
+  end
+  
   let!(:post_user) do
     Post.first.author
   end

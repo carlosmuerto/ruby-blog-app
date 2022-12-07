@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe 'Users', type: :request do
+  before :each do
+    create_and_log_as_test_user
+  end
+  
   let!(:user) do
     User.first
   end
