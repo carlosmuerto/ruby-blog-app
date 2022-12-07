@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, :unless => :devise_controller?
+
+
   def create
     @post = Post.find params[:post_id]
     @comment = Comment.new(comment_params)
