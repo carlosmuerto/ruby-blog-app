@@ -63,4 +63,21 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include Warden::Test::Helpers
+  config.after :each do
+    Warden.test_reset!
+  end
+
+  def create_and_log_as_test_user
+    user = User.new(
+      name: 'test User',
+      bio: 'I was create for testing',
+      email: 'test@test.com',
+      password: 'SuperCoolTestPass'
+    )
+    user.confirmed_at = Time.now
+    user.save
+    login_as(user, scope: :user)
+  end
 end

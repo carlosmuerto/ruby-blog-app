@@ -5,7 +5,10 @@ describe User, type: :model do
     User.new(
       name: 'Tom',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.'
+      bio: 'Teacher from Mexico.',
+      email: 'test@test.com',
+      password: 'SuperCoolTestPass',
+      confirmed_at: Time.now
     )
   end
 

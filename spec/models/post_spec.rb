@@ -5,7 +5,10 @@ describe Post, type: :model do
     User.new(
       name: 'Tom',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'poster'
+      bio: 'poster',
+      email: 'test@test.com',
+      password: 'SuperCoolTestPass',
+      confirmed_at: Time.now
     )
   end
 
@@ -13,7 +16,10 @@ describe Post, type: :model do
     User.new(
       name: 'Tom helper',
       photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'helper'
+      bio: 'helper',
+      email: 'test-helper@test.com',
+      password: 'SuperCoolTestPass',
+      confirmed_at: Time.now
     )
   end
 

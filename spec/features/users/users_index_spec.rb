@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe 'show all Users', type: :feature do
+  before :each do
+    create_and_log_as_test_user
+  end
+
   context 'visit /users' do
     before(:example) do
       visit users_path
