@@ -31,6 +31,12 @@ main.confirmations-new {
       flex-direction: column;
       padding: 0 1rem;
       gap: 0.1rem;
+
+      .field_with_errors {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
     }
 
     .check-box {
