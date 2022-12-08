@@ -10,6 +10,7 @@ lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pos
 
 big_lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a urna fringilla, cursus elit non, sagittis quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed et urna vel ante ultrices volutpat et sed risus. Aenean vestibulum urna a metus vestibulum, sit amet ornare dui mollis. Pellentesque tincidunt congue lorem quis scelerisque. Aenean pellentesque ornare justo sed molestie. Vestibulum sagittis eget tortor tincidunt cursus. Nunc ac scelerisque nulla. Aliquam molestie laoreet consectetur. Integer viverra nunc at diam accumsan vehicula.\nPraesent porta, urna eu consectetur tempor, enim metus porttitor nibh, non hendrerit orci dui eu ligula. Maecenas posuere lorem nec mollis iaculis. Suspendisse in lorem urna. Nullam sollicitudin erat et eleifend tristique. Duis in libero orci. Aliquam quis convallis erat, non cursus erat. Morbi non massa nec orci mollis efficitur. Nunc varius nulla sed nisl ultrices dictum. Nullam lacinia nisl ac lacinia laoreet. Praesent venenatis sapien ut risus ultricies, ac fringilla odio tincidunt. Aliquam nec pretium augue. Nulla laoreet mattis mauris, a mattis dui feugiat sed. Aliquam eros dolor, feugiat sit amet maximus et, aliquet viverra mi. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\nQuisque consectetur quam placerat enim lacinia, ac commodo lorem rhoncus. Cras enim elit, egestas at commodo nec, molestie sed ante. Morbi at venenatis ipsum. Pellentesque varius ac urna quis mattis. Cras accumsan libero a dui sodales condimentum. Cras placerat lacus ut nunc condimentum, sit amet laoreet augue suscipit. Duis sed eleifend neque, et lobortis orci."
 
+
 alicia_user = User.new(
   name: 'Alicia Addy',
   photo: 'https://randomuser.me/api/portraits/women/65.jpg',
@@ -173,3 +174,13 @@ Comment.create(author: luise_user, post: ella_user.posts[1], text: 'Hi Ellan!')
 
 Comment.create(author: hans_user, post: ella_user.posts[0], text: 'Hi Ellan!')
 Comment.create(author: maxime_user, post: ella_user.posts[0], text: 'Hi Ellan!')
+
+admin_user = User.new(
+  name: 'Adams admin',
+  email: 'Adams_admin@test.com',
+  bio: 'I am an Admin',
+  password: 'Adams_admin_pass'
+)
+admin_user.role = 'admin'
+admin_user.skip_confirmation!
+admin_user.save

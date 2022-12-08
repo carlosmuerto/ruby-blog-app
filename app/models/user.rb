@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+	delegate :can?, :cannot?, to: :ability
+
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,6 +16,14 @@ class User < ApplicationRecord
     only_integer: true,
     greater_than_or_equal_to: 0
   }
+
+	ROLES = %w{admin collaborator}
+
+	ROLES.each do |role_name|
+		define_method "#{role_name}?" do
+			role == role_name
+		end
+	end
 
   def post_liked?(post)
     likes.find_by(post:).present?
