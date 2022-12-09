@@ -9,15 +9,15 @@ jobs:
     strategy:
       matrix:
         node-version:
-        - '12.22'
+          - "12.22"
         database-password:
-        - ruby_blog_app_pass
+          - ruby_blog_app_pass
         database-user:
-        - ruby_blog_app
+          - ruby_blog_app
         database-host:
-        - 127.0.0.1
+          - 127.0.0.1
         database-port:
-        - 5432
+          - 5432
 
     services:
       postgres:
@@ -28,14 +28,12 @@ jobs:
         ports:
           - 5432:5432
         # Set health checks to wait until postgres has started
-        options:
-          --health-cmd pg_isready
+        options: --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
 
     steps:
-
       - name: Check out Git Repository
         uses: actions/checkout@v2
 
@@ -68,7 +66,7 @@ jobs:
           DATABASE_PASSWORD: ${{ matrix.database-password }}
           DATABASE_HOST: ${{ matrix.database-host }}
           DATABASE_PORT: ${{ matrix.database-port }}
-        run: rails db:create
+        run: bundle exec rails db:create
 
       - name: Setup test database
         env:
@@ -77,8 +75,7 @@ jobs:
           DATABASE_PASSWORD: ${{ matrix.database-password }}
           DATABASE_HOST: ${{ matrix.database-host }}
           DATABASE_PORT: ${{ matrix.database-port }}
-        run: rails db:setup
-
+        run: bundle exec rails db:setup
 
       - name: RSpec Report
-        run: rspec --force-color --format documentation
+        run: bundle exec rspec --force-color --format documentation
