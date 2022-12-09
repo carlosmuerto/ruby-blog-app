@@ -41,6 +41,7 @@ jobs:
 
       - name: Set up Ruby, Bundler and Rails
         uses: actions/setup-ruby@v1
+          bundler-cache: true
 
       - name: Set up Node
         uses: actions/setup-node@v1
@@ -58,15 +59,6 @@ jobs:
         run: |
           [ -f Gemfile ] && bundle
           gem install --no-document rspec -v '>=3.0, < 4.0'
-
-      - name: create test database
-        env:
-          RAILS_ENV: test
-          DATABASE_USER: ${{ matrix.database-user }}
-          DATABASE_PASSWORD: ${{ matrix.database-password }}
-          DATABASE_HOST: ${{ matrix.database-host }}
-          DATABASE_PORT: ${{ matrix.database-port }}
-        run: rails db:create
 
       - name: Setup test database
         env:
