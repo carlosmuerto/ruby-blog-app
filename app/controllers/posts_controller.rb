@@ -19,6 +19,19 @@ class PostsController < ApplicationController
 		authorize! :create, @post
   end
 
+  def destroy
+    @post = Post.includes(:author).find params[:id]
+		@author =  @post.author
+
+		authorize! :destroy, @post
+
+		@post.destroy
+
+		redirect_to user_path @author
+  end
+
+
+
   def create
     @post = Post.new(post_params)
     @post.author = current_user

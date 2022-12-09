@@ -14,6 +14,7 @@
 		<div class="post-stats">
 
 			<%= render "likes/new", post: @post %>
+			<%= render "posts/destroy", post: @post %>
 
 			<span class="updated-at"> last edit: <%= @post.updated_at.localtime %></span>
 			<span class="likes-count"> Likes: <%= @post.likes_counter %></span>
