@@ -41,6 +41,7 @@ jobs:
 
       - name: Set up Ruby, Bundler and Rails
         uses: actions/setup-ruby@v1
+        with:
           bundler-cache: true
 
       - name: Set up Node
