@@ -1,34 +1,45 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+	authorize_resource
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.order(updated_at: :desc).page(params[:page])
+    @posts = @user.posts.accessible_by(current_ability).order(updated_at: :desc).page(params[:page])
   end
 
   def show
-    @user = current_user
     @post = Post.includes(:comments, :author).find params[:id]
-    @comments = @post.comments.page(params[:page]).includes(:author)
+    @comments = @post.comments.accessible_by(current_ability).page(params[:page]).includes(:author)
   end
 
   def new
-    @user = current_user
     @post = Post.new
-    @post.author = @user
+    @post.author = current_user
+
+
+    like = Like.new(author: current_user, post: @post)
+
+		authorize! :create, @post
   end
 
   def like
+
     @post = Post.find params[:post_id]
 
-    Like.create(author: current_user, post: @post)
 
+    like = Like.new(author: current_user, post: @post)
+
+		authorize! :create, like
+
+		like.save
     redirect_to user_post_path @post.author, @post
   end
 
   def create
     @post = Post.new(post_params)
     @post.author = current_user
+
+		authorize! :create, @post
 
     if @post.save
       redirect_to user_post_path @post.author, @post

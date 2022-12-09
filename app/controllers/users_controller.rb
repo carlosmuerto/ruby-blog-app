@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, :load_by_pagination, :only => :index
-
-  load_and_authorize_resource
-
-  def load_by_pagination
-    @users = User.accessible_by(current_ability).page params[:page]
-  end
+  before_action :authenticate_user!
+	authorize_resource
 
   def index
+		@users = User.accessible_by(current_ability).page params[:page]
   end
 
   def show

@@ -7,7 +7,7 @@ class Ability
 
     return unless user.present? # logged in users
 		can :read, [Post, User, Comment]
-    can %i[update destroy create], [Post, Comment, Like], user: user # rubocop:disable Style/HashSyntax
+    can %i[update destroy create], [Post, Comment, Like], author: user # rubocop:disable Style/HashSyntax
 
     return unless user.admin? # additional permissions for administrators
 

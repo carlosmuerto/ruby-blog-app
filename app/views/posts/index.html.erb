@@ -1,4 +1,6 @@
 <main class="user-posts">
+	<p><%= can? :read, @user%></p>
+	<p><%= can? :read, @posts%></p>
 	<section class="user-card"  id=<%= "user_id_#{@user.id}" %>>
 		<%= render "users/user_tag", user: @user %>
 	</section>
