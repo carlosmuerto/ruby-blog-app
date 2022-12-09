@@ -40,9 +40,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Ruby, Bundler and Rails
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: Set up Node
         uses: actions/setup-node@v1
