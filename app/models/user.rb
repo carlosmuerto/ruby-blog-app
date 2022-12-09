@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	delegate :can?, :cannot?, to: :ability
+  delegate :can?, :cannot?, to: :ability
 
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable and :omniauthable
@@ -17,13 +17,13 @@ class User < ApplicationRecord
     greater_than_or_equal_to: 0
   }
 
-	ROLES = %w{admin collaborator}
+  ROLES = %w[admin collaborator].freeze
 
-	ROLES.each do |role_name|
-		define_method "#{role_name}?" do
-			role == role_name
-		end
-	end
+  ROLES.each do |role_name|
+    define_method "#{role_name}?" do
+      role == role_name
+    end
+  end
 
   def post_liked?(post)
     likes.find_by(post:).present?

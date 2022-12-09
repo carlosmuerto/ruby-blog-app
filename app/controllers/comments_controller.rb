@@ -7,20 +7,20 @@ class CommentsController < ApplicationController
     @comment.author = current_user
     @comment.post = @post
 
-		authorize! :create, @comment
+    authorize! :create, @comment
 
     @comment.save
     redirect_to user_post_path @post.author, @post
   end
 
-	def destroy
-		@comment = Comment.includes(:author, :post).find(params[:id])
-		@post = @comment.post
-		authorize! :create, @comment
+  def destroy
+    @comment = Comment.includes(:author, :post).find(params[:id])
+    @post = @comment.post
+    authorize! :create, @comment
 
-		@comment.destroy
+    @comment.destroy
     redirect_to user_post_path @post.author, @post
-	end
+  end
 
   private
 

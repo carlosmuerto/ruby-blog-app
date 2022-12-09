@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-	authorize_resource
+  authorize_resource
 
   def index
     @user = User.find(params[:user_id])
@@ -16,27 +16,25 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.author = current_user
 
-		authorize! :create, @post
+    authorize! :create, @post
   end
 
   def destroy
     @post = Post.includes(:author).find params[:id]
-		@author =  @post.author
+    @author = @post.author
 
-		authorize! :destroy, @post
+    authorize! :destroy, @post
 
-		@post.destroy
+    @post.destroy
 
-		redirect_to user_path @author
+    redirect_to user_path @author
   end
-
-
 
   def create
     @post = Post.new(post_params)
     @post.author = current_user
 
-		authorize! :create, @post
+    authorize! :create, @post
 
     if @post.save
       redirect_to user_post_path @post.author, @post
