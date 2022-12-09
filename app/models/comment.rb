@@ -3,10 +3,15 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'users_id'
 
   after_save :increment_comment_couter
+  after_destroy :decrement_comments_counter
 
   paginates_per 10
 
   private
+
+  def decrement_comments_counter
+    post.decrement!(:comments_counter)
+  end
 
   def increment_comment_couter
     post.increment!(:comments_counter)

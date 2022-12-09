@@ -6,7 +6,19 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.author = current_user
     @comment.post = @post
+
+    authorize! :create, @comment
+
     @comment.save
+    redirect_to user_post_path @post.author, @post
+  end
+
+  def destroy
+    @comment = Comment.includes(:author, :post).find(params[:id])
+    @post = @comment.post
+    authorize! :create, @comment
+
+    @comment.destroy
     redirect_to user_post_path @post.author, @post
   end
 

@@ -19,5 +19,9 @@
     display: flex;
     gap: 2rem;
     justify-content: flex-end;
+
+    .delete-btn {
+      padding: 0 1rem;
+    }
   }
 }

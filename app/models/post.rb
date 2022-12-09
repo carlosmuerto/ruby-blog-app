@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   paginates_per 2
 
   after_save :increment_author_posts_couter
+  after_destroy :decrement_author_posts_couter
 
   def recent_comments
     comments.order(created_at: :desc).limit(5).includes(:author)
@@ -21,6 +22,10 @@ class Post < ApplicationRecord
   }
 
   private
+
+  def decrement_author_posts_couter
+    author.decrement!(:posts_count)
+  end
 
   def increment_author_posts_couter
     author.increment!(:posts_count)

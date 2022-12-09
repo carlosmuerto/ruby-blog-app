@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_220340) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_08_230840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,14 +66,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_220340) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string "role", default: "collaborator", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "posts", column: "posts_id"
-  add_foreign_key "comments", "users", column: "users_id"
-  add_foreign_key "likes", "posts", column: "posts_id"
-  add_foreign_key "likes", "users", column: "users_id"
-  add_foreign_key "posts", "users", column: "users_id"
+  add_foreign_key "comments", "posts", column: "posts_id", on_delete: :cascade
+  add_foreign_key "comments", "users", column: "users_id", on_delete: :nullify
+  add_foreign_key "likes", "posts", column: "posts_id", on_delete: :cascade
+  add_foreign_key "likes", "users", column: "users_id", on_delete: :cascade
+  add_foreign_key "posts", "users", column: "users_id", on_delete: :nullify
 end
