@@ -61,6 +61,15 @@ jobs:
           [ -f Gemfile ] && bundle
           gem install --no-document rspec -v '>=3.0, < 4.0'
 
+      - name: create test database
+        env:
+          RAILS_ENV: test
+          DATABASE_USER: ${{ matrix.database-user }}
+          DATABASE_PASSWORD: ${{ matrix.database-password }}
+          DATABASE_HOST: ${{ matrix.database-host }}
+          DATABASE_PORT: ${{ matrix.database-port }}
+        run: rails db:create
+
       - name: Setup test database
         env:
           RAILS_ENV: test
