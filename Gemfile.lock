@@ -68,9 +68,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    apipie-rails (0.8.2)
-      actionpack (>= 5.0)
-      activesupport (>= 5.0)
     ast (2.4.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
@@ -308,7 +305,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  apipie-rails
   bootsnap
   cancancan
   capybara
