@@ -5,4 +5,4 @@ class Api::V1::PostsController < ApiController
 
 	  render json: posts.as_json(except: %i[created_at updated_at users_id])
 	end
-  end
+end

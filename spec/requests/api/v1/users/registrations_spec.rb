@@ -39,8 +39,8 @@ describe 'Blogs API', swagger_doc: 'v1/swagger.yaml' do
           client_id: { type: :string, example: get_client_id },
           client_secret: { type: :string, example: get_client_secret },
           grant_type: { type: :string, example: 'password' },
-          email: { type: :string, example: '<user_email>' },
-          password: { type: :string, example: '<user_password>' }
+          email: { type: :string },
+          password: { type: :string }
         },
         required: %w[
           client_id

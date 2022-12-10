@@ -9,34 +9,28 @@ components:
       type: http
       scheme: bearer
   schemas:
-    User:
+    user:
       type: object
       properties:
         id:
           type: integer
-          example: '2'
         name:
           type: string
-          example: Scott Wells
         photo:
           type: string
-          example: https://randomuser.me/api/portraits/men/46.jpg
         bio:
           type: string
-          example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere,
-            diam eu tempor gravida, tellus nibh accumsan ligula, at efficitur neque
-            nibh at tellus. Nullam ante ex, lobortis sit amet odio ac, fermentum cursus
-            est. Quisque ornare dapibus metus in eleifend. Ut luctus erat eget mauris
-            egestas porta. Suspendisse potenti. Curabitur malesuada nunc ex, ac tincidunt
-            purus eleifend nec. Nunc nisi orci, bibendum sit amet orci ac, tempus
-            tristique libero. Proin tempor convallis lectus, sed fringilla ex finibus
-            vulputate.
         posts_count:
           type: integer
-          example: '3'
         email:
           type: string
-          example: scott_wells@test.com
+      required:
+      - id
+      - name
+      - photo
+      - bio
+      - posts_count
+      - email
     post:
       type: object
       properties:
@@ -78,6 +72,12 @@ components:
         likes_counter:
           type: integer
           example: '0'
+      required:
+      - id
+      - title
+      - text
+      - comments_counter
+      - likes_counter
     comment:
       type: object
       properties:
@@ -87,8 +87,13 @@ components:
         text:
           type: string
           example: THANKS EVERYONE
-        author:
-          "$ref": "#/definitions/User"
+        users_id:
+          type: integer
+          example: '11'
+      required:
+      - id
+      - text
+      - users_id
     ErrorResponse:
       type: object
       properties:
@@ -96,6 +101,55 @@ components:
         items:
           type: string
 paths:
+  "/api/v1/users/{user_id}/posts/{post_id}/comments":
+    get:
+      summary: List of User's post
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '401':
+          description: Unauthorized
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/comment"
+  "/api/v1/users/{user_id}/posts/":
+    get:
+      summary: List of User's post
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '401':
+          description: Unauthorized
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/post"
   "/api/v1/oauth/token":
     post:
       summary: api_token
@@ -122,7 +176,7 @@ paths:
                     example: "<refresh_token>"
                   created_at:
                     type: number
-                    example: 1670688261
+                    example: 1670692036
       requestBody:
         content:
           application/json:
@@ -140,10 +194,8 @@ paths:
                   example: password
                 email:
                   type: string
-                  example: "<user_email>"
                 password:
                   type: string
-                  example: "<user_password>"
               required:
               - client_id
               - client_secret
@@ -171,4 +223,4 @@ paths:
               schema:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/user"

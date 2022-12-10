@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-describe 'Blogs API', swagger_doc: 'v1/swagger.yaml' do
+describe 'Users', swagger_doc: 'v1/swagger.yaml' do
   let!(:test_person_pass) do
     'test_person_pass'
   end
@@ -18,43 +18,55 @@ describe 'Blogs API', swagger_doc: 'v1/swagger.yaml' do
     let_p
   end
 
-	let!(:page) {}
+  let!(:page) {}
 
   path '/api/v1/users' do
     get 'List of Users' do
       consumes 'application/json'
-			produces 'application/json'
+      produces 'application/json'
 
       security [{ bearer_auth: [] }]
-			parameter name: :page, in: :query, type: :number, required: false
+      parameter name: :page, in: :query, type: :number, required: false
 
       response 401, 'Unauthorized' do
-        let(:Authorization) { 'AIMHEAR' }
+        let(:Authorization) { '' }
 
         run_test!
       end
 
       response 200, 'OK' do
-				schema type: :array, items: { '$ref' => '#/components/schemas/User' }
+        schema type: :array, items: { '$ref' => '#/components/schemas/user' }
 
-				let(:Authorization) { "Bearer #{generate_access_token(test_person)}" }
+        let(:Authorization) { "Bearer #{generate_access_token(test_person)}" }
 
-				run_test!
+        run_test!
       end
     end
   end
 
   # path '/api/v1/users/{id}' do
-  #   get 'Unauthorized'  do
+  # 	get 'Get User Posts'  do
+  #     consumes 'application/json'
+  # 		produces 'application/json'
+
+  #     security [{ bearer_auth: [] }]
+
   # 		parameter name: :id, in: :path, type: :integer
   # 		response 401, 'Unauthorized' do
+  # 			let(:Authorization) { '' }
   # 			let(:id) { '1' }
   # 			run_test!
   # 		end
-  #   end
 
-  # 	get '' do
+  #     response 200, 'OK' do
+  # 			schema '$ref' => '#/components/schemas/User'
 
+  # 			let(:id) { User.first.id }
+
+  # 			let(:Authorization) { "Bearer #{generate_access_token(test_person)}" }
+
+  # 			run_test!
+  #     end
   # 	end
   # end
 end
