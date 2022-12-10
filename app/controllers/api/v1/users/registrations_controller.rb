@@ -15,7 +15,7 @@ module Api
 
           allowed_params = user_params.except(:client_id)
           user = User.new(allowed_params)
-					user.skip_confirmation!
+          user.skip_confirmation!
 
           if user.save
             render json: render_user(user, client_app), status: :ok
