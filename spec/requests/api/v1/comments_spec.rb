@@ -26,6 +26,8 @@ describe "User's Post's Commnets", swagger_doc: 'v1/swagger.yaml' do
 
   let!(:user_id) { comment.post.author.id }
 
+  let!(:page) {}
+
   path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
     get "List comments" do
       consumes 'application/json'
@@ -34,6 +36,7 @@ describe "User's Post's Commnets", swagger_doc: 'v1/swagger.yaml' do
       security [{ bearer_auth: [] }]
       parameter name: :user_id, in: :path, type: :integer
       parameter name: :post_id, in: :path, type: :integer
+			parameter name: :page, in: :query, type: :number, required: false
 
       response 401, 'Unauthorized' do
         let(:Authorization) { '' }

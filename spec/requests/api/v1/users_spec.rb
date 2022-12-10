@@ -43,30 +43,4 @@ describe 'Users', swagger_doc: 'v1/swagger.yaml' do
       end
     end
   end
-
-  # path '/api/v1/users/{id}' do
-  # 	get 'Get User Posts'  do
-  #     consumes 'application/json'
-  # 		produces 'application/json'
-
-  #     security [{ bearer_auth: [] }]
-
-  # 		parameter name: :id, in: :path, type: :integer
-  # 		response 401, 'Unauthorized' do
-  # 			let(:Authorization) { '' }
-  # 			let(:id) { '1' }
-  # 			run_test!
-  # 		end
-
-  #     response 200, 'OK' do
-  # 			schema '$ref' => '#/components/schemas/User'
-
-  # 			let(:id) { User.first.id }
-
-  # 			let(:Authorization) { "Bearer #{generate_access_token(test_person)}" }
-
-  # 			run_test!
-  #     end
-  # 	end
-  # end
 end

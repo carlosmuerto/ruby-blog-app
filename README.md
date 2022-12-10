@@ -39,6 +39,7 @@ After you're finished please remove all the comments and instructions!
 	- [💻 Getting Started ](#-getting-started-)
 		- [Prerequisites](#prerequisites)
 		- [Setup](#setup)
+		- [configure postgresql database](#configure-postgresql-database)
 		- [Install](#install)
 		- [Usage](#usage)
 	- [👥 Authors ](#-authors-)
@@ -127,13 +128,27 @@ Example commands:
   cd ruby-blog-app
 ```
 
+### configure postgresql database
+
+ - edit 'config\database.yml' file with your username and password
+
 ### Install
 
 Install this project with:
 
+- install dependency
 ```sh
   bundle install
 ```
+- setup database
+```sh
+  rails db:setup
+```
+- update swagger documentation
+```sh
+  rails rswag RAILS_ENV=development
+```
+
 
 ### Usage
 
@@ -176,6 +191,16 @@ Example:
 - GitHub: [@carlosmuerto](https://github.com/carlosmuerto)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/carlos-vivas-818ab831/)
 
+👤 Andres Menutti
+
+- GitHub: [@carlosmuerto](https://github.com/carlosmuerto)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/carlos-vivas-818ab831/)
+
+👤 Wander Gonzalez
+
+- GitHub: [@wandergithub](https://github.com/wandergithub)
+- Twitter: [@wanderklk1](https://twitter.com/wanderklk1)
+- LinkedIn: [Wander A. Gonzalez](https://www.linkedin.com/in/wander-a-gonzalez-53127b205/)
 
 
 
@@ -216,13 +241,6 @@ If you like this project...
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-Collabs
-
-ANDRES MENUTTI
-- GitHub: [@andym80](https://www.github.com/andym80
-
-& WANDER
 
 > Give credit to everyone who inspired your codebase.
 I would like to thank...
