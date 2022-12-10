@@ -103,6 +103,8 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    doorkeeper (5.6.2)
+      railties (>= 5)
     erubi (1.11.0)
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
@@ -120,6 +122,8 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.6.2)
+    json-schema (3.0.0)
+      addressable (>= 2.8)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -229,6 +233,20 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    rswag (2.8.0)
+      rswag-api (= 2.8.0)
+      rswag-specs (= 2.8.0)
+      rswag-ui (= 2.8.0)
+    rswag-api (2.8.0)
+      railties (>= 3.1, < 7.1)
+    rswag-specs (2.8.0)
+      activesupport (>= 3.1, < 7.1)
+      json-schema (>= 2.2, < 4.0)
+      railties (>= 3.1, < 7.1)
+      rspec-core (>= 2.14)
+    rswag-ui (2.8.0)
+      actionpack (>= 3.1, < 7.1)
+      railties (>= 3.1, < 7.1)
     rubocop (1.39.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -310,6 +328,7 @@ DEPENDENCIES
   database_cleaner-active_record
   debug
   devise
+  doorkeeper
   ffi (>= 1.0.11)
   importmap-rails
   jbuilder
@@ -321,6 +340,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   rails-controller-testing
   rspec-rails
+  rswag
   rubocop (>= 1.0, < 2.0)
   sass-rails
   selenium-webdriver
