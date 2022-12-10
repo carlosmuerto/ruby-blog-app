@@ -20,8 +20,8 @@ describe 'Blogs API', swagger_doc: 'v1/swagger.yaml' do
 
   let!(:cretentials) do
     {
-      client_id: get_client_id,
-      client_secret: get_client_secret,
+      client_id:,
+      client_secret:,
       grant_type: 'password',
       email: test_person.email,
       password: test_person_pass

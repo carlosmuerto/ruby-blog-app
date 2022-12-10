@@ -14,7 +14,7 @@ components:
       properties:
         id:
           type: integer
-          example: "2"
+          example: '2'
         name:
           type: string
           example: Scott Wells
@@ -23,92 +23,60 @@ components:
           example: https://randomuser.me/api/portraits/men/46.jpg
         bio:
           type: string
-          example:
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere,
-            diam eu tempor gravida, tellus nibh accumsan ligula, at efficitur neque
-            nibh at tellus. Nullam ante ex, lobortis sit amet odio ac, fermentum cursus
-            est. Quisque ornare dapibus metus in eleifend. Ut luctus erat eget mauris
-            egestas porta. Suspendisse potenti. Curabitur malesuada nunc ex, ac tincidunt
-            purus eleifend nec. Nunc nisi orci, bibendum sit amet orci ac, tempus
-            tristique libero. Proin tempor convallis lectus, sed fringilla ex finibus
-            vulputate.
+          example: Lorem ipsum dolor
         posts_count:
           type: integer
-          example: "3"
+          example: '3'
         email:
           type: string
           example: scott_wells@test.com
       required:
-        - id
-        - name
-        - photo
-        - bio
-        - posts_count
-        - email
+      - id
+      - name
+      - photo
+      - bio
+      - posts_count
+      - email
     post:
       type: object
       properties:
         id:
           type: integer
-          example: "3"
+          example: '3'
         title:
           type: string
           example: Donec commodo magna vel tortor cursus.
         text:
           type: string
-          example:
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a urna
-            fringilla, cursus elit non, sagittis quam. Orci varius natoque penatibus
-            et magnis dis parturient montes, nascetur ridiculus mus. Sed et urna vel
-            ante ultrices volutpat et sed risus. Aenean vestibulum urna a metus vestibulum,
-            sit amet ornare dui mollis. Pellentesque tincidunt congue lorem quis scelerisque.
-            Aenean pellentesque ornare justo sed molestie. Vestibulum sagittis eget
-            tortor tincidunt cursus. Nunc ac scelerisque nulla. Aliquam molestie laoreet
-            consectetur. Integer viverra nunc at diam accumsan vehicula.\nPraesent
-            porta, urna eu consectetur tempor, enim metus porttitor nibh, non hendrerit
-            orci dui eu ligula. Maecenas posuere lorem nec mollis iaculis. Suspendisse
-            in lorem urna. Nullam sollicitudin erat et eleifend tristique. Duis in
-            libero orci. Aliquam quis convallis erat, non cursus erat. Morbi non massa
-            nec orci mollis efficitur. Nunc varius nulla sed nisl ultrices dictum.
-            Nullam lacinia nisl ac lacinia laoreet. Praesent venenatis sapien ut risus
-            ultricies, ac fringilla odio tincidunt. Aliquam nec pretium augue. Nulla
-            laoreet mattis mauris, a mattis dui feugiat sed. Aliquam eros dolor, feugiat
-            sit amet maximus et, aliquet viverra mi. Suspendisse potenti. Vestibulum
-            ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-            curae;\nQuisque consectetur quam placerat enim lacinia, ac commodo lorem
-            rhoncus. Cras enim elit, egestas at commodo nec, molestie sed ante. Morbi
-            at venenatis ipsum. Pellentesque varius ac urna quis mattis. Cras accumsan
-            libero a dui sodales condimentum. Cras placerat lacus ut nunc condimentum,
-            sit amet laoreet augue suscipit. Duis sed eleifend neque, et lobortis
-            orci.
+          example: Lorem ipsum dolor
         comments_counter:
           type: integer
-          example: "11"
+          example: '11'
         likes_counter:
           type: integer
-          example: "0"
+          example: '0'
       required:
-        - id
-        - title
-        - text
-        - comments_counter
-        - likes_counter
+      - id
+      - title
+      - text
+      - comments_counter
+      - likes_counter
     comment:
       type: object
       properties:
         id:
           type: integer
-          example: "11"
+          example: '11'
         text:
           type: string
           example: THANKS EVERYONE
         users_id:
           type: integer
-          example: "11"
+          example: '11'
       required:
-        - id
-        - text
-        - users_id
+      - id
+      - text
+      - users_id
     ErrorResponse:
       type: object
       properties:
@@ -120,27 +88,27 @@ paths:
     get:
       summary: List comments
       security:
-        - bearer_auth: []
+      - bearer_auth: []
       parameters:
-        - name: user_id
-          in: path
-          required: true
-          schema:
-            type: integer
-        - name: post_id
-          in: path
-          required: true
-          schema:
-            type: integer
-        - name: page
-          in: query
-          required: false
-          schema:
-            type: number
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: number
       responses:
-        "401":
+        '401':
           description: Unauthorized
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -151,22 +119,22 @@ paths:
     post:
       summary: post a comment
       security:
-        - bearer_auth: []
+      - bearer_auth: []
       parameters:
-        - name: user_id
-          in: path
-          required: true
-          schema:
-            type: integer
-        - name: post_id
-          in: path
-          required: true
-          schema:
-            type: integer
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: integer
       responses:
-        "401":
+        '401':
           description: Unauthorized
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -182,22 +150,22 @@ paths:
                   type: string
                   example: some comment
               required:
-                - text
+              - text
   "/api/v1/users/{user_id}/posts/":
     get:
       summary: List of User's post
       security:
-        - bearer_auth: []
+      - bearer_auth: []
       parameters:
-        - name: user_id
-          in: path
-          required: true
-          schema:
-            type: integer
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
       responses:
-        "401":
+        '401':
           description: Unauthorized
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -210,7 +178,7 @@ paths:
       summary: api_token
       parameters: []
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -231,7 +199,7 @@ paths:
                     example: "<refresh_token>"
                   created_at:
                     type: number
-                    example: 1670696482
+                    example: 1670700609
       requestBody:
         content:
           application/json:
@@ -240,10 +208,10 @@ paths:
               properties:
                 client_id:
                   type: string
-                  example: "[REDACTED]"
+                  example: M3DBlHPzZkIlErwg-12quuc00kjN6I89BS0Z2PAC19k
                 client_secret:
                   type: string
-                  example: "[REDACTED]"
+                  example: SrxhvGubICrRvOk5NASuSPbrORAxhOfZMdOYBoiqLA4
                 grant_type:
                   type: string
                   example: password
@@ -252,26 +220,26 @@ paths:
                 password:
                   type: string
               required:
-                - client_id
-                - client_secret
-                - grant_type
-                - email
-                - password
+              - client_id
+              - client_secret
+              - grant_type
+              - email
+              - password
   "/api/v1/users":
     get:
       summary: List of Users
       security:
-        - bearer_auth: []
+      - bearer_auth: []
       parameters:
-        - name: page
-          in: query
-          required: false
-          schema:
-            type: number
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: number
       responses:
-        "401":
+        '401':
           description: Unauthorized
-        "200":
+        '200':
           description: OK
           content:
             application/json:
