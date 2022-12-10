@@ -74,8 +74,8 @@ group :development, :test do
   gem 'launchy'
   gem 'letter_opener'
 
-	# generate API from test
-	gem 'apipie-rails'
+  # generate API from test
+  gem 'apipie-rails'
 end
 
 group :development do
