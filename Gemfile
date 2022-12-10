@@ -73,6 +73,9 @@ group :development, :test do
   gem 'ffi', '>= 1.0.11'
   gem 'launchy'
   gem 'letter_opener'
+
+	# generate API from test
+	gem 'apipie-rails'
 end
 
 group :development do
