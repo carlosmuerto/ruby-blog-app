@@ -27,7 +27,7 @@ describe "User's Post's Commnets", swagger_doc: 'v1/swagger.yaml' do
   let!(:user_id) { comment.post.author.id }
 
   path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
-    get "List of User's post" do
+    get "List comments" do
       consumes 'application/json'
       produces 'application/json'
 
@@ -49,5 +49,38 @@ describe "User's Post's Commnets", swagger_doc: 'v1/swagger.yaml' do
         run_test!
       end
     end
+
+		post "post a comment" do
+			consumes 'application/json'
+			produces 'application/json'
+
+			security [{ bearer_auth: [] }]
+			parameter name: :user_id, in: :path, type: :integer
+			parameter name: :post_id, in: :path, type: :integer
+			parameter name: :text, in: :body, schema: {
+				type: :object,
+				properties: {
+					text: { type: :string, example: 'some comment' },
+				},
+				required: [ 'text' ]
+			}
+
+			response 401, 'Unauthorized' do
+				let(:Authorization) { '' }
+				let(:text) {({text: 'test comment'})}
+
+				run_test!
+			end
+
+			response 200, 'OK' do
+				schema '$ref' => '#/components/schemas/comment'
+
+				let(:Authorization) { "Bearer #{generate_access_token(test_person)}" }
+				let(:text) {({text: 'test comment'})}
+
+				run_test!
+			end
+
+		end
   end
 end
