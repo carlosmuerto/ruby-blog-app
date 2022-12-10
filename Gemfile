@@ -16,6 +16,9 @@ ruby '3.1.2'
 # handle auth
 gem 'devise'
 
+# handle json auth
+gem 'doorkeeper'
+
 # sass precompliler
 gem 'sass-rails'
 
