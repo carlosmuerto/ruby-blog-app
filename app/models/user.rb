@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   paginates_per 10
 
-	validates :email, format: URI::MailTo::EMAIL_REGEXP
+  validates :email, format: URI::MailTo::EMAIL_REGEXP
   validates :name, presence: true
   validates :posts_count, numericality: {
     only_integer: true,
@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
   # the authenticate method from devise documentation
   def self.authenticate(email, password)
-    user = User.find_for_authentication(email: email)
+    user = User.find_for_authentication(email:)
     user&.valid_password?(password) ? user : nil
   end
 end
