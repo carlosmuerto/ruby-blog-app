@@ -3,7 +3,7 @@
 		liked!
 	</div>
 <% else %>
-  <%= form_with model: Like, url: user_post_like_path(post.author, post) do |f| %>
+  <%= form_with model: Like, url: user_post_likes_path(post.author, post) do |f| %>
 		<%= f.submit "like", disable_with: 'liking...', class: 'like-btn' %>
 	<% end %>
 <% end %>

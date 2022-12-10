@@ -8,4 +8,5 @@
 	<span class="updated-at"> last edit: <%= post.updated_at.localtime %></span>
 	<span class="likes-count"> Likes: <%= post.likes_counter %></span>
 	<span class="comment-count"> comments: <%= post.comments_counter %></span>
+	<%= render "posts/destroy", post: post %>
 </div>

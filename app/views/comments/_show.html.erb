@@ -1,9 +1,16 @@
 <div class="comment" id=<%="comment-#{comment.id}"%>>
-	<h4 class="comment-author">
-		<%= link_to user_path comment.author do %>
-			<%= comment.author.name %>
-		<% end %>
-	</h4>
-	<p class="comment-text"><%= comment.text %></p>
-	<span class="comment-updated-at"> last edit: <%= comment.updated_at.localtime %></span>
+  <h4 class="comment-author">
+    <%= link_to user_path comment.author do %>
+      <%= comment.author.name %>
+    <% end %>
+  </h4>
+  <p class="comment-text"><%= comment.text %></p>
+  <div class="actions">
+    <span class="comment-updated-at"> last edit: <%= comment.updated_at.localtime %></span>
+    <% if (can? :destroy, comment) %>
+      <%= form_with model: Comment, url: user_post_comment_path(comment.post.author, comment.post, comment), method: :delete, class: "delete-comment-form" do |f| %>
+        <%= f.submit "delete", disable_with: 'deleting...', class: 'delete-btn' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

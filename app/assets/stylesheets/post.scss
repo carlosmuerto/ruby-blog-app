@@ -38,7 +38,8 @@ main.full-post {
       gap: 2rem;
       justify-content: flex-end;
 
-      .like-btn {
+      .like-btn,
+      .delete-btn {
         padding: 0 1rem;
       }
     }

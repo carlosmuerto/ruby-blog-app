@@ -34,8 +34,14 @@
       padding: 0.5rem;
     }
 
-    .comment-updated-at {
+    .actions {
+      display: flex;
+      gap: 0.5rem;
       font-size: 0.75rem;
+
+      // .comment-updated-at {}
+
+      // .delete-btn {}
     }
   }
 }

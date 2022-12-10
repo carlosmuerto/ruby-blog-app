@@ -10,11 +10,11 @@
   </section>
   <section class="recent-posts">
     <h3>recents posts</h3>
-    <% @user.recent_posts.each do |post| %>
+    <% @recent_posts.each do |post| %>
       <article class="post-preview" id=<%= "post_id_#{post.id}" %>>
         <%= render "posts/post_preview", post: post %>
       </article>
     <% end %>
-    <%= link_to "see all posts (#{@user.posts.count})", user_posts_path(@user), class: "see-all-posts-btn" %>
+    <%= link_to "see all posts (#{@user.posts_count})", user_posts_path(@user), class: "see-all-posts-btn" %>
   </section>
 </main>
