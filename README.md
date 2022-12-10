@@ -178,6 +178,7 @@ Example:
 
 
 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -215,6 +216,13 @@ If you like this project...
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+Collabs
+
+ANDRES MENUTTI
+- GitHub: [@andym80](https://www.github.com/andym80
+
+& WANDER
 
 > Give credit to everyone who inspired your codebase.
 I would like to thank...
