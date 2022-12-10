@@ -5,6 +5,9 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'composite_primary_keys', '~>14.0'
 
+# API Documentaion
+gem 'rswag'
+
 # handle Authorization
 gem 'cancancan'
 
