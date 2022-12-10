@@ -5,7 +5,7 @@ class Api::V1::CommentsController < ApiController
     render json: @comments.as_json(except: %i[created_at updated_at posts_id])
   end
 
-	def create
+  def create
     @post = Post.find params[:post_id]
     @comment = Comment.new(comment_params)
     @comment.author = current_user
@@ -13,11 +13,11 @@ class Api::V1::CommentsController < ApiController
 
     authorize! :create, @comment
 
-		if @comment.save
-			render json: @comment.as_json(except: %i[created_at updated_at posts_id])
-		else
-			render json: @comment.errors, status: :unprocessable_entity
-		end
+    if @comment.save
+      render json: @comment.as_json(except: %i[created_at updated_at posts_id])
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
   end
 
   private

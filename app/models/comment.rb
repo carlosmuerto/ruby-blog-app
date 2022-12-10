@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   after_save :increment_comment_couter
   after_destroy :decrement_comments_counter
 
-	validates :text, presence: true
+  validates :text, presence: true
 
   paginates_per 10
 

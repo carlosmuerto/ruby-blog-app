@@ -28,7 +28,7 @@ describe 'Blogs API', swagger_doc: 'v1/swagger.yaml' do
     }
   end
 
-  path '/api/v1/oauth/token' do
+  path '/api/v1/oauth/token' do # rubocop:disable Metrics/BlockLength
     post 'api_token' do
       consumes 'application/json'
       produces 'application/json'
@@ -36,8 +36,8 @@ describe 'Blogs API', swagger_doc: 'v1/swagger.yaml' do
       parameter name: :cretentials, in: :body, schema: {
         type: :object,
         properties: {
-          client_id: { type: :string, example: get_client_id },
-          client_secret: { type: :string, example: get_client_secret },
+          client_id: { type: :string, example: client_id },
+          client_secret: { type: :string, example: client_secret },
           grant_type: { type: :string, example: 'password' },
           email: { type: :string },
           password: { type: :string }

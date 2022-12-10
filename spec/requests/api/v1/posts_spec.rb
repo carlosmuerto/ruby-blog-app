@@ -18,7 +18,7 @@ describe "User's Posts", swagger_doc: 'v1/swagger.yaml' do
     let_p
   end
 
-  let!(:page) {}
+  let!(:page) {} # rubocop:disable Lint/EmptyBlock
 
   let!(:user) { User.first }
 

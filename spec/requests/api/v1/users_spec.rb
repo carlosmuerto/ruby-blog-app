@@ -18,7 +18,7 @@ describe 'Users', swagger_doc: 'v1/swagger.yaml' do
     let_p
   end
 
-  let!(:page) {}
+  let!(:page) {} # rubocop:disable Lint/EmptyBlock
 
   path '/api/v1/users' do
     get 'List of Users' do
